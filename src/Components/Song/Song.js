@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 export default class Song extends Component{
     render(){
+        console.log(this.props.title)
         return(
             <>
                 <div className = "Song-Containter" key={this.props.id}>

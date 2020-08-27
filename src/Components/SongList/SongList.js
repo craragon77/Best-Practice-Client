@@ -4,10 +4,8 @@ import Song from '../Song/Song';
 
 export default class SongList extends Component{
     render(){
-        const music = Object.keys(MUSIC).map(i => {
-          return(
-              <Song />
-          )
+        let music = Object.values(MUSIC).map(i => {
+            return(<Song title={i.title}/>)
         })
         return(
             <>
