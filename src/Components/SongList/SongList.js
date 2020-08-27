@@ -4,9 +4,13 @@ import Song from '../Song/Song';
 
 export default class SongList extends Component{
     render(){
-        let music = Object.values(MUSIC).map(i => {
-            return(<Song title={i.title}/>)
-        })
+        //console.log(Object.values(MUSIC[0])) <= this gives me an error?
+        let musicArray = Object.values(MUSIC)
+        console.log(musicArray.values())
+        //^^^ this gives 0?
+        let music = musicArray.map((i) => 
+            <p>filler until we get to the bottom of this</p>
+        )
         return(
             <>
                 <main>
