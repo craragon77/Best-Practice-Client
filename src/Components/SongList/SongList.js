@@ -6,8 +6,7 @@ export default class SongList extends Component{
     render(){
         //console.log(Object.values(MUSIC[0])) <= this gives me an error?
         let musicArray = Object.values(MUSIC)
-        console.log(musicArray.values())
-        //^^^ this gives 0?
+        console.log(Object.values(musicArray[0][0]))
         let music = musicArray.map((i) => 
             <p>filler until we get to the bottom of this</p>
         )
