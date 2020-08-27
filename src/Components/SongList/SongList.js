@@ -10,7 +10,7 @@ export default class SongList extends Component{
         console.log(MUSIC.MUSIC[0])
         console.log(Object.values(musicArray[0][0]))
         let music = MUSIC.MUSIC.map((i) => 
-            <p>{i.title}</p>
+            <Song song = {i}/>
         )
         return(
             <>
