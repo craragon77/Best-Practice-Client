@@ -5,11 +5,12 @@ import AddHours from '../AddHours/AddHours';
 import SongList from '../SongList/SongList';
 import Signup from '../Signup/Signup';
 import {Link} from 'react-router-dom';
+import "./Header.css";
 
 export default class Header extends Component{
     render(){
         return(
-            <div>
+            <div className="Header-Links">
                 <Link to="/">Home</Link>
                 <Link to="/Dashboard">Your Practice Stats</Link>
                 <Link to="/AddHours">Log Practice Hours</Link>

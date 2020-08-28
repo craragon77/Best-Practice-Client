@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import "./LandingPage.css"
 
 export default class LandingPage extends Component{
     render(){
         return(
             //never waste a minuet? is that a better one
             <>
-                <div className="Title-Header">
-                    <h1>Best Practice</h1>
-                    <h3>Make Every <span id="minuet">"Minuet"</span> Count</h3>
-                </div>
                 <div className="Explination">
                     <p>
                     Best Practice is an app for musicians to help them optimize how they reherse.

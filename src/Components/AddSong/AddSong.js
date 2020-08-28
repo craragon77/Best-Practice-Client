@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddSong.css';
 
 export default class AddSong extends Component{
     handleSubmit = (e) => {
@@ -8,21 +9,21 @@ export default class AddSong extends Component{
     render(){
         return(
             <>
-                <form>
+                <form className="AddSong-Form">
                     <h1>Add a New Song to Reherse</h1>
-                    <label for="title">Title</label><br/>
+                    <label htmlFor="title">Title</label><br/>
                     <input type="text" name="title"/><br/>
-                    <label for="composer">Composer</label><br/>
+                    <label htmlFor="composer">Composer</label><br/>
                     <input type="text" name="composer"/><br/>
-                    <label for="difficulty">Difficulty Level</label><br/>
+                    <label htmlFor="difficulty">Difficulty Level</label><br/>
                     <input type="radio" name="difficulty"/>Very Easy
                     <input type="radio" name="difficulty"/>Easy
                     <input type="radio" name="difficulty"/>Average
                     <input type="radio" name="difficulty"/>Challenging
                     <input type="radio" name="difficulty"/>Very Challenging<br/>
-                    <label for="title">Date Started</label><br/>
+                    <label htmlFor="title">Date Started</label><br/>
                     <input type="date" name="date-started"/><br/>
-                    <label for="title">Hours Rehersed So Far (if any)</label><br/>
+                    <label htmlFor="title">Hours Rehersed So Far (if any)</label><br/>
                     <input type="number" name="hours rehersed thus far"/><br/>
                     <button onClick={this.handleSubmit}>Submit!</button>
                 </form>

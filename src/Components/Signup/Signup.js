@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Signup.css'
 
 export default class Signup extends Component{
     handleClick = (e) => {
@@ -8,8 +9,9 @@ export default class Signup extends Component{
     render(){
         return(
             <>
-                <h2>Sign Up</h2>
-                <form>
+                
+                <form className="Signup-Form">
+                    <h1>Sign Up</h1>
                     <label for="username">Username</label><br/>
                     <input type="text" name="username" /><br/>
                     <label for="password">Password</label><br/>

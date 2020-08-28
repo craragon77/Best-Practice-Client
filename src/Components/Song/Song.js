@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import './Song.css'
 
 export default class Song extends Component{
     render(){
         console.log(this.props.song.title)
         return(
             <>
-                <div className = "Song-Containter" key={this.props.song.id}>
+                <div className = "Song-Container" key={this.props.song.id}>
                     <h1>{this.props.song.title}</h1>
                     <h3>{this.props.song.composer}</h3>
                     <div className="song-information">

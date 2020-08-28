@@ -10,10 +10,13 @@ import Header from './Components/Header/Header';
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Loading from './Components/Loading/Loading';
+import TitleBar from './Components/Title-Bar/Title-Bar';
+import './App.css'
 
 function App() {
   return (
     <div className="App">
+      <TitleBar/>
       <Header />
       <Switch>
         <Route exact path="/" component={LandingPage}/>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Login.css'
 
 export default class Login extends Component{
     handleClick = (e) => {
@@ -8,8 +9,9 @@ export default class Login extends Component{
     render(){
         return(
             <>  
-                <h2>Login</h2>
-                <form>
+                
+                <form class="Login-Form">
+                    <h1>Login</h1>
                     <label for="username">Username</label><br/>
                     <input type="text" name="username" /><br/>
                     <label for="password">Password</label><br/>
