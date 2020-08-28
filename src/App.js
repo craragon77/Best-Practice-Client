@@ -6,11 +6,25 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import SongList from './Components/SongList/SongList';
 import AddSong from './Components/AddSong/AddSong';
 import AddHours from './Components/AddHours/AddHours';
+import Header from './Components/Header/Header';
+import {Route, Switch} from 'react-router-dom';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
+import Loading from './Components/Loading/Loading';
 
 function App() {
   return (
     <div className="App">
-      <AddHours />
+      <Header />
+      <Switch>
+        <Route exact path="/" component={LandingPage}/>
+        <Route path="/Dashboard" component={Dashboard}/>
+        <Route path="/Login" component={Login}/>
+        <Route path="/Signup" component={Signup}/>
+        <Route path="/AddHours" component={AddHours}/>
+        <Route path="/AddSong" component={AddSong}/>
+        <Route path="/SongList" component={SongList}/>
+        <Route component={PageNotFound}/>
+      </Switch>
     </div>
   );
 }
