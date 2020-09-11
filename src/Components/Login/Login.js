@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
+import TokenService from '../../Services/TokenService';
 import './Login.css'
 
 export default class Login extends Component{
     handleClick = (e) => {
         e.preventDefault();
         alert('The button was clicked!')
+    }
+    handleSubmitBasicAuth = (e) => {
+        e.preventDefault();
+        const {username, password}  = e.target
+
+        TokenService.saveAuthToken(
+            TokenService.makeBasicAuthToken(user_name.value, password.value)
+        );
     }
     render(){
         return(

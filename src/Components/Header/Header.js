@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import Dashboard from '../Dashboard/Dashboard';
-import AddSong from '../AddSong/AddSong';
-import AddHours from '../AddHours/AddHours';
-import SongList from '../SongList/SongList';
-import Signup from '../Signup/Signup';
 import {Link} from 'react-router-dom';
+import TokenService from '../../Services/TokenService';
 import "./Header.css";
 
 export default class Header extends Component{
@@ -16,8 +12,10 @@ export default class Header extends Component{
                 <Link to="/AddHours">Log Practice Hours</Link>
                 <Link to="/SongList">Your Pieces</Link>
                 <Link to="/AddSong">Add a New Song</Link>
+                {TokenService.hasAuthToken() ? this.renderLogoutLink() : this.renderLoginLink()}
                 <Link to="/Login">Login</Link>
                 <Link to="/Signup">Sign Up</Link>
+                
             </div>
         )
     }
