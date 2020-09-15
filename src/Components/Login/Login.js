@@ -12,7 +12,7 @@ export default class Login extends Component{
         const {username, password}  = e.target
 
         TokenService.saveAuthToken(
-            TokenService.makeBasicAuthToken(user_name.value, password.value)
+            TokenService.makeBasicAuthToken(username.value, password.value)
         );
     }
     render(){
