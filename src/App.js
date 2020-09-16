@@ -11,7 +11,8 @@ import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Loading from './Components/Loading/Loading';
 import TitleBar from './Components/Title-Bar/Title-Bar';
-
+import PublicRoute from '../src/Components/Util/PublicRoute';
+import PrivateRoute from '../src/Components/Util/PrivateRoute';
 import './App.css'
 
 function App() {
@@ -21,12 +22,12 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={LandingPage}/>
-        <Route path="/Dashboard" component={Dashboard}/>
-        <Route path="/Login" component={Login}/>
-        <Route path="/Signup" component={Signup}/>
-        <Route path="/AddHours" component={AddHours}/>
-        <Route path="/AddSong" component={AddSong}/>
-        <Route path="/SongList" component={SongList}/>
+        <PrivateRoute path="/Dashboard" component={Dashboard}/>
+        <PublicRoute path="/Login" component={Login}/>
+        <PublicRoute path="/Signup" component={Signup}/>
+        <PrivateRoute path="/AddHours" component={AddHours}/>
+        <PrivateRoute path="/AddSong" component={AddSong}/>
+        <PrivateRoute path="/SongList" component={SongList}/>
         <Route component={PageNotFound}/>
       </Switch>
     </div>

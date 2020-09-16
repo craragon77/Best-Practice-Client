@@ -47,6 +47,7 @@ export default class Login extends Component{
                 (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json().then(res => TokenService.saveAuthToken(res.authToken))
+                //how would I go about redirecting both updating the state and redirecting the user to the dashboard
             })
             
     }
