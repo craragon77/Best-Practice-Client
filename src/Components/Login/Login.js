@@ -40,26 +40,15 @@ export default class Login extends Component{
         console.log('the username is: ' + username);
         console.log('the password is: ' + password);
         console.log(AuthApiService.postLogin)
-        AuthApiService.postLogin({username: username, password: password})
+        AuthApiService.postLogin({
+            username: username, password: password
+        })
             .then(res => {
-                if(res.ok){
-                    console.log('the then statement has activated!')
-                    console.log(res.authToken)
-                    this.setState({
-                        username: '',
-                        password: ''
-                    })
-                    //cannot read authToken of undefined? res us undefined?
-                    TokenService.saveAuthToken(res.authToken)
-                }
+                (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json().then(res => TokenService.saveAuthToken(res.authToken))
             })
-            .catch(err => {
-                console.log('the catch statement has activated')
-                console.log(err)
-                this.setState({
-                    error: err.error
-                })
-            })
+            
     }
     render(){
         return(
