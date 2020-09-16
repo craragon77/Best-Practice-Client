@@ -11,6 +11,7 @@ import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Loading from './Components/Loading/Loading';
 import TitleBar from './Components/Title-Bar/Title-Bar';
+
 import './App.css'
 
 function App() {
