@@ -40,28 +40,30 @@ export default class Login extends Component{
         console.log('the username is: ' + username);
         console.log('the password is: ' + password);
         console.log(AuthApiService.postLogin)
-        AuthApiService.postLogin({
-            username: username,
-            password: password
-        })
+        AuthApiService.postLogin({username: username, password: password})
             .then(res => {
-                this.setState({
-                    username: '',
-                    password: ''
-                })
-                TokenService.saveAuthToken(res.authToken)
+                if(res.ok){
+                    console.log('the then statement has activated!')
+                    console.log(res.authToken)
+                    this.setState({
+                        username: '',
+                        password: ''
+                    })
+                    //cannot read authToken of undefined? res us undefined?
+                    TokenService.saveAuthToken(res.authToken)
+                }
             })
-            .catch(res => {
-                console.log(res.error)
+            .catch(err => {
+                console.log('the catch statement has activated')
+                console.log(err)
                 this.setState({
-                    error: res.error
+                    error: err.error
                 })
             })
     }
     render(){
         return(
-            <>  
-                
+            <>   
                 <form class="Login-Form">
                     <h1>Login</h1>
                     <label for="username">Username</label><br/>

@@ -9,11 +9,6 @@ const AuthApiService = {
             },
             body: JSON.stringify(creds)
         })
-        .then(res => {
-            (!res.ok)
-                ? res.json().then(e => Promise.reject)
-                : res.json()
-            })
     }
 }
 
