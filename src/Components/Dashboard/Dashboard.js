@@ -14,17 +14,16 @@ export default class Dashboard extends Component{
         UserServices.getUserStats(id, token)
         .then(res => {
             if(res.ok){
-                console.log(res.json())
                 return res.json()
             }
             //response lacks data :(
         })
-        .then(res => {
+        .then(resJson => {
             //i also used to have this as resJson but it was undefined :( #PromiseHandlingIsHard
-            console.dir(res)
+            console.log(resJson)
         })
         .catch(err => {
-            console.log('panic')
+            console.error(err)
         })
     }
     render(){
