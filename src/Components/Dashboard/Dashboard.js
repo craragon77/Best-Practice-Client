@@ -6,6 +6,15 @@ import "./Dashboard.css"
 
 
 export default class Dashboard extends Component{
+    constructor(props){
+        super(props);
+        this.state = ({
+            username: '',
+            data: ''
+        })
+    }
+
+
     componentDidMount(){
         const id = window.localStorage.Token_Id
         const token = window.localStorage.Authorization
@@ -20,19 +29,38 @@ export default class Dashboard extends Component{
         })
         .then(resJson => {
             //i also used to have this as resJson but it was undefined :( #PromiseHandlingIsHard
-            console.log(resJson)
+            this.setState({
+                data: resJson
+            })
+            console.log(this.state.data)
         })
         .catch(err => {
             console.error(err)
+        });
+
+
+        UserServices.getUserById(id, token)
+        .then(res => {
+            if(res.ok)
+            return res.json();
+        })
+        .then(resJson => {
+            this.setState({
+                username: resJson.username
+            });
+            console.log(this.state.username)
+        })
+        .catch(err => {
+            console.error(err);
         })
     }
+
     render(){
-        //which stats do I want to keep track of?
-        //
+        
         return(
             <>
             <main className="Stats">
-                <h1>Welcome Chris!</h1>
+                <h1>Welcome {this.state.username}!</h1>
                 <div>
                     <h2>Your Practice Trends</h2>
                     <p>You have practiced 9 days in a row</p>
