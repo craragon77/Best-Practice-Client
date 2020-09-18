@@ -13,8 +13,14 @@ export default class Dashboard extends Component{
         //^^^this shows the token
         UserServices.getUserStats(id, token)
         .then(res => {
-            console.log(res)
+            if(res.ok){
+                console.log(res.json())
+                return res.json()
+            }
             //response lacks data :(
+        })
+        .then(res => {
+            console.log(res)
         })
         .catch(err => {
             console.log('panic')
