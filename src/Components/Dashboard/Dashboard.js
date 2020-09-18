@@ -20,7 +20,8 @@ export default class Dashboard extends Component{
             //response lacks data :(
         })
         .then(res => {
-            console.log(res)
+            //i also used to have this as resJson but it was undefined :( #PromiseHandlingIsHard
+            console.dir(res)
         })
         .catch(err => {
             console.log('panic')
