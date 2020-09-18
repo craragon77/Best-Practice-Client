@@ -20,13 +20,13 @@ const UserServices = {
             body: JSON.stringify(user)
         })
     },
-    getUserStats(id){
+    getUserStats(id, token){
         
         return fetch(`${config.API_ENDPOINT}/api/user-songs/ById/${id}`, {
             //why is it yelling at me for this line ^^^
             headers: {
                 //ok so it appears to be the bearer token here?
-                'authorization': `bearer ${TokenService.getAuthToken}`,
+                'authorization': `bearer ${token}`,
                 'content-type': 'application/json'
             }
         })

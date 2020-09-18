@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import UserServices from '../../Services/UserServices';
 import TokenService from '../../Services/TokenService';
+import config from '../../config';
 import "./Dashboard.css"
 
 
 export default class Dashboard extends Component{
     componentDidMount(){
         const id = window.localStorage.Token_Id
-        UserServices.getUserStats(id)
+        const token = window.localStorage.Authorization
+        console.log(token)
+        //^^^this shows the token
+        UserServices.getUserStats(id, token)
         .then(res => {
-            console.log(res.json)
+            console.log(res)
+            //response lacks data :(
         })
-        .catch(console.error('something went wrong, panic!'))
+        .catch(err => {
+            console.log('panic')
+        })
     }
     render(){
         //which stats do I want to keep track of?
