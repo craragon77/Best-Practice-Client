@@ -7,9 +7,23 @@ const UserServices = {
     getAllUsers(){
         return fetch(`whatever the url will be`, {
             headers: {
-                'authorization': `basic ${TokenServices.getAuthToken()}`
+                'authorization': `bearer ${TokenServices.getAuthToken()}`
             }
         })
+    },
+    postNewUser(user){
+        return fetch(`${config.API_ENDPOINT}/api/users`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    },
+    getUserStats(user_id){
+        return fetch(`${config.API_ENDPOINT}/api/user_songs/ById/${user_id}`)
     }
 }
+
+export default UserServices;
 

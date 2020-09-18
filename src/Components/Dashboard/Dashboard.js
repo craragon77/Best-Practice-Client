@@ -3,6 +3,9 @@ import "./Dashboard.css"
 
 
 export default class Dashboard extends Component{
+    componentDidMount(){
+        
+    }
     render(){
         //which stats do I want to keep track of?
         //

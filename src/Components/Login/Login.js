@@ -45,9 +45,10 @@ export default class Login extends Component{
         })
             .then(res => {
                 (!res.ok)
-                ? res.json().then(e => Promise.reject(e))
-                : res.json().then(res => TokenService.saveAuthToken(res.authToken))
+                ? res.json().then(err => alert(err.error)).then(e => Promise.reject(e))
+                : res.json().then(res => TokenService.saveAuthToken(res.authToken) + TokenService.saveUserId(res.user_id)).then(() => {this.props.history.push('/Dashboard')})
                 //how would I go about redirecting both updating the state and redirecting the user to the dashboard
+                //: res.json().then(res => {/*update state;*/ TokenService.saveAuthToken(res.authToken); /*do some other thing; this.props.history.push('/dashboard');*/})
             })
             
     }
