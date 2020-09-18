@@ -19,6 +19,9 @@ const TokenService = {
     },
     saveUserId(id){
         window.localStorage.setItem(config.ID_TOKEN, id);
+    },
+    getUserId(){
+        return window.localStorage.getItem(config.ID_TOKEN);
     }
 };
 
