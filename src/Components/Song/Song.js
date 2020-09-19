@@ -68,10 +68,11 @@ export default class Song extends Component{
             </div>
             )
         })
-        const practiceInfo = this.state.info.date_added
+        const practiceInfo = this.state.info
         //this.state.info.date_added = undefined
         //this.state.info[0].date_added = error message
         //practiceInfo.date_added = undefined
+        //practiceInfo.info => undefined
         //how can I target the information that I need?
         console.log(practiceInfo)
         return(
