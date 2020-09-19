@@ -55,7 +55,7 @@ export default class Song extends Component{
                 this.setState({
                     info: resJson
                 })
-                
+                console.log('this.state.info is an array: ', Array.isArray(this.state.info))
             })
         }
         
@@ -74,7 +74,8 @@ export default class Song extends Component{
         //practiceInfo.date_added = undefined
         //practiceInfo.info => undefined
         //how can I target the information that I need?
-        console.log(practiceInfo)
+        //console.log(this.state.info[0].date_added)
+        
         return(
             <>
             <div className = "Song-Container">
