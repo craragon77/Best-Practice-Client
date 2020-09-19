@@ -56,6 +56,7 @@ export default class Song extends Component{
                     info: resJson
                 })
                 console.log('this.state.info is an array: ', Array.isArray(this.state.info))
+                console.log(this.state.info[0].date_added)
             })
         }
         
