@@ -10,15 +10,15 @@ export default class Dashboard extends Component{
         super(props);
         this.state = ({
             username: '',
-            data: ''
+            data: []
         })
     }
 
 
     componentDidMount(){
-        const id = window.localStorage.Token_Id
-        const token = window.localStorage.Authorization
-        console.log(token)
+        const id = window.localStorage.Token_Id;
+        const token = window.localStorage.Authorization;
+        console.log(token);
         //^^^this shows the token
         UserServices.getUserStats(id, token)
         .then(res => {
@@ -55,13 +55,18 @@ export default class Dashboard extends Component{
         })
     }
 
+    
     render(){
-        
+        const dateMath = this.state.data.map((i) => {
+            return console.log(Date(i.start_time))
+        })
+        //idk how to manipulate the date :(
         return(
             <>
             <main className="Stats">
                 <h1>Welcome {this.state.username}!</h1>
                 <div>
+                    {dateMath}
                     <h2>Your Practice Trends</h2>
                     <p>You have practiced 9 days in a row</p>
                     <p>You have logged a total of 93.5 hours of practice time</p>

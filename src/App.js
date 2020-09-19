@@ -13,6 +13,7 @@ import Loading from './Components/Loading/Loading';
 import TitleBar from './Components/Title-Bar/Title-Bar';
 import PublicRoute from '../src/Components/Util/PublicRoute';
 import PrivateRoute from '../src/Components/Util/PrivateRoute';
+import Song from './Components/Song/Song';
 import './App.css'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <PrivateRoute path="/AddHours" component={AddHours}/>
         <PrivateRoute path="/AddSong" component={AddSong}/>
         <PrivateRoute path="/SongList" component={SongList}/>
+        <PrivateRoute path="/Song" component={Song}/>
         <Route component={PageNotFound}/>
       </Switch>
     </div>

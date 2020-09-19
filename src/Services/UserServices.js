@@ -21,8 +21,8 @@ const UserServices = {
         })
     },
     getUserStats(id, token){
-        return fetch(`${config.API_ENDPOINT}/api/user-songs/ById/${id}`, {
-            //why is it yelling at me for this line ^^^
+        return fetch(`${config.API_ENDPOINT}/api/user-songs/HistoryById/${id}`, {
+            
             headers: {
                 //ok so it appears to be the bearer token here?
                 'authorization': `bearer ${token}`,
