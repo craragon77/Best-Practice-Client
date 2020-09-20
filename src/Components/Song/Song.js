@@ -9,7 +9,7 @@ export default class Song extends Component{
         this.state = {
             song: '',
             history: [],
-            info: ''
+            info: []
         }
     }
     componentDidMount(){
@@ -56,7 +56,7 @@ export default class Song extends Component{
                     info: resJson
                 })
                 console.log('this.state.info is an array: ', Array.isArray(this.state.info))
-                console.log(this.state.info[0].date_added)
+                console.log(this.state.info)
             })
         }
         
@@ -69,21 +69,32 @@ export default class Song extends Component{
             </div>
             )
         })
-        const practiceInfo = this.state.info
+        //const practiceInfo = this.state.info
         //this.state.info.date_added = undefined
         //this.state.info[0].date_added = error message
         //practiceInfo.date_added = undefined
         //practiceInfo.info => undefined
         //how can I target the information that I need?
         //console.log(this.state.info[0].date_added)
-        
+        let startDate, instrument, desired_hours, difficulty
+        if(this.state.info && this.state.info.length > 0){
+            console.log(this.state.info[0].date_added)
+            startDate = this.state.info[0].date_added
+            instrument = this.state.info[0].instrument
+            desired_hours = this.state.info[0].desired_hours
+            difficulty = this.state.info[0].difficulty
+
+        }
         return(
             <>
             <div className = "Song-Container">
                 <h1>{this.state.song.title}</h1>
                 <h2>By {this.state.song.composer}</h2>
                 <section>
-                    <p>rehersal for {this.state.song.title} began on: </p>
+                    <p>played for the {instrument}</p>
+                    <p>Desired Hours: {desired_hours}</p>
+                    <p>rehersal for {this.state.song.title} began on: {startDate}</p>
+                    <p>Difficulty level: {difficulty}</p>
                 </section>
                 <section>
                     {history}
