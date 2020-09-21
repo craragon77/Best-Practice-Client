@@ -59,23 +59,24 @@ export default class Song extends Component{
                 console.log(this.state.info)
             })
         }
-        
+    handleTotalPracticeHours(){
+        let totalHoursPracticed = 0
+        for(let i = 0; i <= this.state.history.length; i++){
+            return console.log(i.practice_hours)
+        }
+        //console.log(totalHoursPracticed)
+    }
     render(){
         const history = this.state.history.map((i) => {
             return(
             <div key={i.id}>
-                <p>Start Time: {Date(i.start_time)})</p>
-                <p>End Time: {Date(i.end_time)}</p>
+                <hr/>
+                <p>Date: {Date(i.date_practiced)})</p>
+                <p>Hours Logged During Practice: {i.practice_hours}</p>
             </div>
             )
         })
-        //const practiceInfo = this.state.info
-        //this.state.info.date_added = undefined
-        //this.state.info[0].date_added = error message
-        //practiceInfo.date_added = undefined
-        //practiceInfo.info => undefined
-        //how can I target the information that I need?
-        //console.log(this.state.info[0].date_added)
+        
         let startDate, instrument, desired_hours, difficulty
         if(this.state.info && this.state.info.length > 0){
             console.log(this.state.info[0].date_added)
@@ -83,8 +84,9 @@ export default class Song extends Component{
             instrument = this.state.info[0].instrument
             desired_hours = this.state.info[0].desired_hours
             difficulty = this.state.info[0].difficulty
-
         }
+
+        
         return(
             <>
             <div className = "Song-Container">
@@ -92,8 +94,10 @@ export default class Song extends Component{
                 <h2>By {this.state.song.composer}</h2>
                 <section>
                     <p>played for the {instrument}</p>
-                    <p>Desired Hours: {desired_hours}</p>
-                    <p>rehersal for {this.state.song.title} began on: {startDate}</p>
+                    <p>Desired Hours per week: {desired_hours} hours per week</p>
+                    <p>Desired Average Hours per day: {Math.round(desired_hours / 7)} hours per day</p>
+                    <p>Total Hours rehersed for this song: {this.handleTotalPracticeHours()}</p>
+                    <p>rehersal for {this.state.song.title} began on: {Date(startDate)}</p>
                     <p>Difficulty level: {difficulty}</p>
                 </section>
                 <section>

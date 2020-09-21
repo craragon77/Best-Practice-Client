@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import UserServices from '../../Services/UserServices';
+
 import './Signup.css'
 
 export default class Signup extends Component{
@@ -49,11 +50,14 @@ export default class Signup extends Component{
         console.log('the username is: ' + username);
         console.log('the password is: ' + password);
         console.log('the username is: ' + repeat_password);
-        UserServices.postNewUser({
+        if(password !== repeat_password){
+            alert('your passwords must match before you can make an account')
+        } else{
+            UserServices.postNewUser({
             username: username,
             password: password
-        })
-        .then(res =>
+            })
+            .then(res =>
             (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json().then(res => {
@@ -62,11 +66,12 @@ export default class Signup extends Component{
                         password: '',
                         repeat_password: ''
                     })
-                }).then(alert('you have successfully made an account. You will now be redirected to the login page to access it'))
-                .then(() => this.push.history('/Login'))
+                }).then(alert('you have successfully made an account. You will now be redirected to the login page to access it'), this.props.history.push('/Login'))
+                
                 //look into how one could throw in the jwt web token handling so they don't need to log in a second time
                 //(or not depending on how much time you have lolol)
         )
+        } 
     }
     render(){
         return(
