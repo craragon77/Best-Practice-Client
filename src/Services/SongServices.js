@@ -29,6 +29,13 @@ const SongService = {
                 'Authorization': `bearer ${token}`
             }
         })
+    },
+    getSongByTitle(token, query){
+        return fetch(`${config.API_ENDPOINT}/api/songs/byName/${query}`, {
+            headers: {
+                'Authorization': `bearer ${token}`
+            }
+        })
     }
 }
 

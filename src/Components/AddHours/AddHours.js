@@ -30,9 +30,9 @@ export default class AddHours extends Component{
                 this.setState({
                     songs: resJson
                 })
-                console.log(this.state.song)
+                console.log(this.state.songs)
             })
-            .catch(error => console.error(error));
+            .catch(error => alert(error));
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -62,19 +62,20 @@ export default class AddHours extends Component{
         })
         console.log(this.state.hours)
     }
+
     handleSong = (e) => {
-        /*var song_id = this.state.song_selected.map(function(item){
-            return item.key == e.target.value
-        }) */
+        //console.log(e.target.value);
+        //console.log(value[0].value);
+        console.log('the handle song activated')
+        e.preventDefault(e)
         this.setState({
-            song_selected: e.target.key
+            song_selected: e.target.value
         })
-        
         console.log(this.state.song_selected)
     }
     render(){
         const songOptions = this.state.songs.map(i => 
-        <option key={i.id} value={i.title + 'by' + i.composer} onClick={this.handleSong}>{i.title + ' by ' + i.composer}</option>
+        <option key={i.id} value={i.id}>{i.title + ' by ' + i.composer}</option>
         )
         return(
             <>
@@ -82,7 +83,7 @@ export default class AddHours extends Component{
                 <form className="AddHours-Form">
                     <h1>Log Practice Hours</h1>
                     <label htmlFor="piece">Piece Rehersed</label><br/>
-                    <select name="songs">
+                    <select name="songs" value={this.state.song_selected} onChange={(e) => this.handleSong(e)}>
                         {songOptions}
                     </select><br/>
                     <label htmlFor="hours">How long did you practice?</label><br/>

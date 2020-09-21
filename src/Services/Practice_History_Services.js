@@ -6,10 +6,10 @@ const PracticeHistoryServices = {
         return fetch(`${config.API_ENDPOINT}/api/practice-history`, {
             method: 'POST',
             headers: {
-                'Authorization': `bearer ${token}`,
+                //'authorization': `bearer ${token}`,
                 'content-type': 'application/json'
             },
-            body: post
+            body: JSON.stringify(post)
         })
     }
 }
