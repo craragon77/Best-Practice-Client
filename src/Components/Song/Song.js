@@ -59,15 +59,17 @@ export default class Song extends Component{
                 console.log(this.state.info)
             })
         }
-    handleTotalPracticeHours(){
+
+    /*handleTotalPracticeHours(){
         let totalHoursPracticed = 0
         console.log(this.state.history)
         for(let i = 0; i <= this.state.history.length; i++){
             console.log(this.state.history[i])
             //console.log(this.state.history[i].practice_hours) => undefined
+            //also why is this calling a billion times
         }
         //console.log(totalHoursPracticed)
-    }
+    } */
     render(){
         const history = this.state.history.map((i) => {
             return(
@@ -80,12 +82,21 @@ export default class Song extends Component{
         })
         
         let startDate, instrument, desired_hours, difficulty
+        let totalHours = 0;
         if(this.state.info && this.state.info.length > 0){
             console.log(this.state.info[0].date_added)
             startDate = this.state.info[0].date_added
             instrument = this.state.info[0].instrument
             desired_hours = this.state.info[0].desired_hours
             difficulty = this.state.info[0].difficulty
+            for(let i = 0; i < this.state.history.length; i++){
+                console.log(this.state.history[i])
+                totalHours += this.state.history[i].practice_hours
+                //also why is this calling a billion times
+            }
+            
+            console.log(totalHours)
+            //console.log(totalHoursPracticed)
         }
 
         
@@ -98,7 +109,7 @@ export default class Song extends Component{
                     <p>played for the {instrument}</p>
                     <p>Desired Hours per week: {desired_hours} hours per week</p>
                     <p>Desired Average Hours per day: {Math.round(desired_hours / 7)} hours per day</p>
-                    <p>Total Hours rehersed for this song: {this.handleTotalPracticeHours()}</p>
+                    <p>Total Hours rehersed for this song: {Math.round(totalHours)} hour</p>
                     <p>rehersal for {this.state.song.title} began on: {Date(startDate)}</p>
                     <p>Difficulty level: {difficulty}</p>
                 </section>

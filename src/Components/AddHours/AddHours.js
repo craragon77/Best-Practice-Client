@@ -1,15 +1,80 @@
 import React, {Component} from 'react';
 import MUSIC from '../Dummy-Music/Dummy-Music';
+import SongServices from '../../Services/SongServices';
+import UserSongServices from '../../Services/User_Songs_Services';
+import PracticeHistoryService from '../../Services/Practice_History_Services';
 import './AddHours.css'
+import PracticeHistoryServices from '../../Services/Practice_History_Services';
 
 export default class AddHours extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            songs: [],
+            hours: '',
+            date: '',
+            song_selected: ''
+        }
+    }
+    componentDidMount(){
+        const id = window.localStorage.Token_Id;
+        const token = window.localStorage.Authorization;
+        UserSongServices.getAllUserSongsBasedOnId(id, token)
+            .then(res => {
+                if(res.ok){
+                    return res.json();
+                }
+            })
+            .then(resJson => {
+                //console.log(resJson)
+                this.setState({
+                    songs: resJson
+                })
+                console.log(this.state.song)
+            })
+            .catch(error => console.error(error));
+    }
     handleSubmit = (e) => {
         e.preventDefault();
-        alert('Click successful!')
+        const token = window.localStorage.Authorization;
+        let chosen_song = this.state.song_selected;
+        let chosen_hours = this.state.hours;
+        let chosen_date = this.state.date;
+        let post_body = {chosen_song, chosen_hours, chosen_date}
+        console.log(post_body)
+        PracticeHistoryServices.postPracticeHistorySesson(token, post_body)
+        .then(res => {
+            if(res.ok){
+                alert('you have successfully posted a practice session!')
+            }
+        })
+        .catch(error => console.error(error))
+    }
+    handleDate = (e) => {
+        this.setState({
+            date: e.target.value
+        })
+        console.log(this.state.date)
+    }
+    handleHours = (e) => {
+        this.setState({
+            hours: e.target.value
+        })
+        console.log(this.state.hours)
+    }
+    handleSong = (e) => {
+        /*var song_id = this.state.song_selected.map(function(item){
+            return item.key == e.target.value
+        }) */
+        this.setState({
+            song_selected: e.target.key
+        })
+        
+        console.log(this.state.song_selected)
     }
     render(){
-        const songOptions = MUSIC.MUSIC.map(i => 
-            <option key={i.id} value={i.title + 'by' + i.composer}>{i.title + ' by ' + i.composer}</option>
+        const songOptions = this.state.songs.map(i => 
+        <option key={i.id} value={i.title + 'by' + i.composer} onClick={this.handleSong}>{i.title + ' by ' + i.composer}</option>
         )
         return(
             <>
@@ -21,9 +86,9 @@ export default class AddHours extends Component{
                         {songOptions}
                     </select><br/>
                     <label htmlFor="hours">How long did you practice?</label><br/>
-                    <input type="number" name="hours"/><br/>
+                    <input type="number" name="hours" onChange={this.handleHours} /><br/>
                     <label htmlFor="date">Date Practiced?</label><br/>
-                    <input type="date" name="date"></input><br/>
+                    <input type="date" name="date" onChange={this.handleDate}></input><br/>
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>
             </>
