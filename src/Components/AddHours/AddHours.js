@@ -37,10 +37,10 @@ export default class AddHours extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
         const token = window.localStorage.Authorization;
-        let chosen_song = this.state.song_selected;
-        let chosen_hours = this.state.hours;
-        let chosen_date = this.state.date;
-        let post_body = {chosen_song, chosen_hours, chosen_date}
+        let song_practiced = this.state.song_selected;
+        let practice_hours = this.state.hours;
+        let practice_date = this.state.date;
+        let post_body = {song_practiced, practice_hours, practice_date}
         console.log(post_body)
         PracticeHistoryServices.postPracticeHistorySesson(token, post_body)
         .then(res => {
