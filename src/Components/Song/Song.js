@@ -62,7 +62,11 @@ export default class Song extends Component{
     handleTotalPracticeHours(){
         let totalHoursPracticed = 0
         for(let i = 0; i <= this.state.history.length; i++){
-            return console.log(i.practice_hours)
+            return (
+                console.log(i),
+                console.log(i.practice_hours),
+                console.log([i].practice_hours)
+            )
         }
         //console.log(totalHoursPracticed)
     }
