@@ -5,7 +5,7 @@ import config from '../config';
 
 const UserServices = {
     getAllUsers(){
-        return fetch(`whatever the url will be`, {
+        return fetch(`${config}/api/users`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             }

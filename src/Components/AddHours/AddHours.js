@@ -19,7 +19,7 @@ export default class AddHours extends Component{
     componentDidMount(){
         const id = window.localStorage.Token_Id;
         const token = window.localStorage.Authorization;
-        UserSongServices.getAllUserSongsBasedOnId(id, token)
+        UserSongServices.getUserSongsForHistoryPost(id, token)
             .then(res => {
                 if(res.ok){
                     return res.json();
@@ -64,8 +64,7 @@ export default class AddHours extends Component{
     }
 
     handleSong = (e) => {
-        //console.log(e.target.value);
-        //console.log(value[0].value);
+        //you're posting the song id not the user_song id
         console.log('the handle song activated')
         e.preventDefault(e)
         this.setState({

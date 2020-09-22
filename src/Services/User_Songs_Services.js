@@ -10,7 +10,15 @@ const UserSongsServices = {
                 'content-type': 'application/json'
             }
         })
-    }
-};
+    },
+    getUserSongsForHistoryPost(id, token){
+        return fetch(`${config.API_ENDPOINT}/api/user-songs/getSongsForHistoryPost/${id}`, {
+            headers: {
+                'Authorization': `bearer ${token}`,
+                'content-type': 'application/json'
+            }
+        }
+    )}
+}
 
 export default UserSongsServices
