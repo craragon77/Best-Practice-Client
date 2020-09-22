@@ -86,9 +86,9 @@ export default class Dashboard extends Component{
                     {this.dateMath}
                     <h2>Your Practice Trends</h2>
                     <p>You have practiced 9 days in a row</p>
-        <p>Your most recent rehersal was on </p>
+        <p>Your most recent rehearsal was on </p>
                     <p>You have logged a total of {totalHours} hours of practice time</p>
-                    <p>Your most rehersed song is Lagrimas by Francisco Tarrega</p>
+                    <p>Your most rehearsed song is Lagrimas by Francisco Tarrega</p>
                     <p>You have practiced 7.5 hours total this week</p>
                     <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60} minutes per day</p>
                 </div>

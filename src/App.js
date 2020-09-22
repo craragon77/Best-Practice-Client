@@ -14,6 +14,7 @@ import TitleBar from './Components/Title-Bar/Title-Bar';
 import PublicRoute from '../src/Components/Util/PublicRoute';
 import PrivateRoute from '../src/Components/Util/PrivateRoute';
 import Song from './Components/Song/Song';
+import AddNewSongToDB from './Components/AddNewSongToDB/AddNewSongToDB';
 import './App.css'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <PrivateRoute path="/AddSong" component={AddSong}/>
         <PrivateRoute path="/SongList" component={SongList}/>
         <PrivateRoute path="/Song" component={Song}/>
+        <PrivateRoute path="/AddNewSong" component={AddNewSongToDB}/>
         <Route component={PageNotFound}/>
       </Switch>
     </div>

@@ -36,6 +36,16 @@ const SongService = {
                 'Authorization': `bearer ${token}`
             }
         })
+    },
+    postNewSong(token, song){
+        return fetch(`${config.API_ENDPOINT}/api/songs`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `bearer ${token}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(song)
+        })
     }
 }
 

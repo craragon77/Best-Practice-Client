@@ -109,8 +109,8 @@ export default class Song extends Component{
                     <p>played for the {instrument}</p>
                     <p>Desired Hours per week: {desired_hours} hours per week</p>
                     <p>Desired Average Hours per day: {Math.round(desired_hours / 7)} hours per day</p>
-                    <p>Total Hours rehersed for this song: {Math.round(totalHours)} hour</p>
-                    <p>rehersal for {this.state.song.title} began on: {Date(startDate)}</p>
+                    <p>Total Hours rehearsed for this song: {Math.round(totalHours)} hour</p>
+                    <p>Rehearsal for {this.state.song.title} began on: {Date(startDate)}</p>
                     <p>Difficulty level: {difficulty}</p>
                 </section>
                 <section>

@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 import SongServices from '../../Services/SongServices';
+import AddNewSongToDb from '../AddNewSongToDB/AddNewSongToDB';
+import SongSearchResults from '../SongSearchResults/SongSearchResults';
+import {Link} from 'react-router-dom';
 import './AddSong.css';
+import SearchSongResults from '../SongSearchResults/SongSearchResults';
 
 export default class AddSong extends Component{
     constructor(props){
         super(props);
         this.state = {
-            title: ''
+            title: '',
+            results: [],
+            searched: false
         }
     }
     handleSubmit = (e) => {
@@ -20,9 +26,14 @@ export default class AddSong extends Component{
             }
         })
         .then(resJson => {
-            console.log(resJson)
+            this.setState({
+                results: resJson,
+                searched: true,
+                title: ''
+            })
+            console.log(this.state.results)
         })
-        .catch(err => console.err(err))
+        .catch(err => console.error(err))
     }
 
     handleTitleChange = (e)=> {
@@ -32,11 +43,40 @@ export default class AddSong extends Component{
         })
         console.log(this.state.title)
     }
+
+    handleResultsRendering = () => {
+        console.log('render function activate')
+        if((this.state.results.length == 0) && (this.state.searched == true)){
+            return null
+        } else {
+            return this.state.results.map((i) => {
+                return <SongSearchResults key={i.id} title={i.title} composer={i.composer}/>
+            })
+        }
+    }
+
+    addToDatabaseLink = () => {
+        console.log('the db link has activated');
+        if(this.state.searched == true){
+            return(
+                <section>
+                    <h4>Don't see what you're looking for?<br/>
+                        Fill out <Link to={"/AddNewSong"}>this form to add it to your practice sessions</Link>!
+                    </h4>
+                </section>
+            )
+        }
+    }
+    
     render(){
+        
+        /*const results = this.state.results.map((i) => {
+            return <SongSearchResults title={this.state.results[i].title} composer={this.state.results[i].composer}/>
+        }) */
         return(
             <>
                 <form className="AddSong-Form">
-                    <h1>Add a New Song to Reherse</h1>
+                    <h1>Add a New Song to Rehearse</h1>
                     <label htmlFor="title">Title</label><br/>
                     <input type="text" name="title" onChange={this.handleTitleChange}/><br/>
                     {/*<label htmlFor="composer">Composer</label><br/>
@@ -53,6 +93,10 @@ export default class AddSong extends Component{
                     <input type="number" name="hours rehersed thus far"/><br/> */}
                     <button onClick={this.handleSubmit}>Submit!</button>
                 </form>
+                <div className='results'>
+                    {this.addToDatabaseLink()}
+                    {this.handleResultsRendering()}
+                </div>
             </>
         )
     }
