@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import SongServices from '../../Services/SongServices'
+import SongServices from '../../Services/SongServices';
 
 export default class AddNewSongToDB extends Component{
     constructor(props){

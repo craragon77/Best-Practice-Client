@@ -18,7 +18,17 @@ const UserSongsServices = {
                 'content-type': 'application/json'
             }
         }
-    )}
+    )},
+    postNewUserSong(user_song, token){
+        return fetch(`${config.API_ENDPOINT}/api/user-songs`, {
+            method: 'POST',
+            headers: {
+                'Autorizaton': `bearer ${token}`,
+                'content-type': `application/json`
+            },
+            body: JSON.stringify(user_song)
+        })
+    }
 }
 
 export default UserSongsServices

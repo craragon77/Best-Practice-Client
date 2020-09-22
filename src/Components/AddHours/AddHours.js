@@ -91,7 +91,7 @@ export default class AddHours extends Component{
                 
                 <form className="AddHours-Form">
                     <h1>Log Practice Hours</h1>
-                    <label htmlFor="piece">Piece Rehersed</label><br/>
+                    <label htmlFor="piece">Piece Rehearsed</label><br/>
                     <select name="songs" value={this.state.song_selected} onChange={(e) => this.handleSong(e)} required>
                         {songOptions}
                     </select><br/>
