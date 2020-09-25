@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import UserSongServices from '../../Services/User_Songs_Services';
+import {Link} from 'react-router-dom';
 
 export default class SearchSongResults extends Component{
     constructor(props){
@@ -10,34 +11,6 @@ export default class SearchSongResults extends Component{
             desired_hours: '',
             comments: ''
         }
-    }
-
-    handleInstrument = (e) => {
-        this.setState({
-            instrument: e.target.value
-        })
-        console.log(this.state.instrument);
-    }
-
-    handleDifficulty = (e) => {
-        this.setState({
-            difficulty: e.target.value
-        })
-        console.log(this.state.difficulty)
-    }
-    
-    handleHours = (e) => {
-        this.setState({
-            desired_hours: e.target.value
-        })
-        console.log(this.state.desired_hours)
-    }
-
-    handleComments = (e) => {
-        this.setState({
-            comments: e.target.value
-        })
-        console.log(this.state.comments)
     }
 
     handleSubmit = (e) => {
@@ -63,25 +36,28 @@ export default class SearchSongResults extends Component{
     }
 
     render(){
+        console.log(this.props.id)
         return(
-            <div key={this.props.key}>
-                <form onSubmit>
-                    <h3>{this.props.title} by {this.props.composer}</h3>
+            <>
+                <h3>{this.props.title} by {this.props.composer}</h3>
+                <Link to={`/AddUserSong/form/post/${this.props.id}`}>Add To Repertoire</Link>
+                {/*<form onSubmit>
+                    
                     <label htmlFor="instrument">Instrument</label>
                     <input type="text" name="instrument" onChange={this.handleInstrument}/>
                     <label htmlFor="difficulty">Difficulty Level</label>
-                    {/*<input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty}>Very Easy</input>
+                    <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty}>Very Easy</input>
                     <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty}>Easy</input>
                     <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty}>Average</input>
                     <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty}>Challenging</input>
-        <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty}>Very Challenging</input> */}
+        <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty}>Very Challenging</input>
                     <label htmlFor="desired_hours">How much do you want to practice this piece (per week)</label>
                     <input type="number" name="desired_hours" onChange={this.handleInstrument}/>
                     <label htmlFor="comments">Comments</label>
                     <input type="text" name="comments" onChange={this.handleInstrument}/>
                     <button>Submit</button>
-                </form>
-            </div>
+                </form>*/}
+            </>
                 
             
         )

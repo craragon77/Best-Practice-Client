@@ -15,6 +15,7 @@ import PublicRoute from '../src/Components/Util/PublicRoute';
 import PrivateRoute from '../src/Components/Util/PrivateRoute';
 import Song from './Components/Song/Song';
 import AddNewSongToDB from './Components/AddNewSongToDB/AddNewSongToDB';
+import UserSongProfileForm from './Components/UserSongProfileForm/UserSongProfileForm';
 import './App.css'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <PrivateRoute path="/SongList" component={SongList}/>
         <PrivateRoute path="/Song" component={Song}/>
         <PrivateRoute path="/AddNewSong" component={AddNewSongToDB}/>
+        <PrivateRoute path="/AddUserSong/form/post" component={UserSongProfileForm}/>
         <Route component={PageNotFound}/>
       </Switch>
     </div>

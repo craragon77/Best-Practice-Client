@@ -50,7 +50,12 @@ export default class AddSong extends Component{
             return null
         } else {
             return this.state.results.map((i) => {
-                return <SongSearchResults key={i.id} title={i.title} composer={i.composer}/>
+                return (
+                    <div key={i.id}>
+                        <SongSearchResults id={i.id} title={i.title} composer={i.composer}/>
+                    </div>
+                
+                )
             })
         }
     }
