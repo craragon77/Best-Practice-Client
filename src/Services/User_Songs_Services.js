@@ -23,11 +23,38 @@ const UserSongsServices = {
         return fetch(`${config.API_ENDPOINT}/api/user-songs`, {
             method: 'POST',
             headers: {
-                'Autorizaton': `bearer ${token}`,
+                'Authorization': `bearer ${token}`,
                 'content-type': `application/json`
             },
             body: JSON.stringify(user_song)
         })
+    },
+    deleteUserSong(token, id){
+        return fetch(`${config.API_ENDPOINT}/api/user-songs/${id}`,{
+            method: 'DELETE',
+            headers: {
+                'Authorization': `bearer ${token}`,
+                'content-type': `application/json`
+            }
+        })
+    },
+    getAllUserSongsByUserId(id, token){
+        //gets all songs assocaited with a user + all practice history (excluding practice history)
+        return fetch(`${config.API_ENDPOINT}/api/user-songs/byId/songs/${id}`, {
+            headers: {
+                'Authorization': `bearer ${token}`,
+                'content-type': 'application/json'
+            }
+        })
+    },
+    idConfirmation(id, token){
+        return fetch(`${config.API_ENDPOINT}/api/user-song/${id}`, {
+            headers: {
+                'Authorizatoin': `bearer ${token}`,
+                "content-type": 'applicatoin/json'
+            }
+        })
+            
     }
 }
 

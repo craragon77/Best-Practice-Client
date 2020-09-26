@@ -16,7 +16,7 @@ export default class SongList extends Component{
     componentDidMount(){
         const id = window.localStorage.Token_Id;
         const token = window.localStorage.Authorization;
-        UserSongServices.getAllUserSongsBasedOnId(id, token)
+        UserSongServices.getUserSongsForHistoryPost(id, token)
         .then(res => {
             if(res.ok){
                 return res.json()
@@ -44,7 +44,7 @@ export default class SongList extends Component{
             <Song key={i.id} song = {i}/>
         ) */
         const music = this.state.songs.map((i) => {
-            return <Link to={`song/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
+            return <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
         })
         return(
             <>

@@ -11,7 +11,9 @@ export default class UserSongProfileForm extends Component{
             difficulty: '',
             instrument: '',
             desired_hours: '',
-            comments: ''
+            comments: '',
+            date_added: '',
+            inSystem: ''
         }
     }
     componentDidMount(){
@@ -59,49 +61,78 @@ export default class UserSongProfileForm extends Component{
         })
         console.log(this.state.comments)
     }
+
+
+    handleDate = (e) => {
+        this.setState({
+            date_added: e.target.value
+        })
+    }
+
+
     handleSubmit = (e) => {
+        e.preventDefault(e)
         const token = window.localStorage.Authorization
-        const title = this.props.title;
-        const composer = this.props.composer;
+        console.log(token)
+        const song_id = window.location.pathname.split("/")[4]
+        const title = this.state.title;
+        const composer = this.state.composer;
         const instrument = this.state.instrument;
         const difficulty = this.state.difficulty;
+        let date_added = this.state.date_added;
         const desired_hours = this.state.desired_hours;
         const comments = this.state.comments;
-        const user_song = {title, composer, instrument, difficulty, desired_hours, comments}
+        const user_song = {song_id,title, composer, instrument, difficulty, desired_hours, comments, date_added}
+        console.log(user_song)
+        if(date_added == ""){
+            date_added = Date()
+        }
         if(({instrument, difficulty, desired_hours} === null) || !{instrument, difficulty, desired_hours}){
             alert('please include all the necessary fields to post a new song')
-        } else{
+        }else{
             UserSongServices.postNewUserSong(user_song, token)
             .then(res => {
                 if(res.ok){
                     alert(`you have successfully added ${title} by ${composer} to your repertoire!`)
+                    this.props.history.push('/SongList')
                 }
             })
-            .catch(error => console.log(error))
+            .catch(err => console.log(err.error.message))
         }
+        
+        //
+        
+        /*UserSongServices.IdConfirmation(id, token)
+            .then(res => {
+                if(res.ok){
+                    alert('you already have this song in your practice repoitoire. Songs may be added only once')
+                }
+            }) */
     }
 
     render(){
         return(
             <>
                 <main>
-                    <h1>
-                        Before Adding {this.state.composer}'s {this.state.title} to your Repertoire, <br/>
-                        Tell us a little about your practice goals for the piece
-                    </h1>
-                        <form>
-                        <label htmlFor="instrument">Instrument</label>
-                        <input type="text" name="instrument" onChange={this.handleInstrument}/>
-                        <label htmlFor="difficulty">Difficulty Level of the Piece (based on your skill level)</label>
-                            <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty}>Very Easy</input>
-                            <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty}>Easy</input>
-                            <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty}>Average</input>
-                            <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty}>Challenging</input>
-                            <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty}>Very Challenging</input>
-                        <label htmlFor="desired_hours">How much do you want to practice this piece (per week)</label>
-                        <input type="number" name="desired_hours" onChange={this.handleInstrument}/>
-                        <label htmlFor="comments">Comments</label>
-                        <input type="text" name="comments" onChange={this.handleInstrument}/>
+                    <h3>
+                        Before Adding {this.state.composer}'s {this.state.title} to your Repertoire,<br/>
+                        What are your practice goals?
+                    </h3>
+                        <form onSubmit={this.handleSubmit}>
+                        <label htmlFor="instrument">Instrument</label><br/>
+                        <input type="text" name="instrument" onChange={this.handleInstrument}/><br/>
+                        <label htmlFor="difficulty">Difficulty Level of the Piece (based on your skill level)</label><br/>
+                            <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty} />Very Easy<br/>
+                            <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty} />Easy<br/>
+                            <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty} />Average<br/>
+                            <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty} />Challenging<br/>
+                            <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty} />Very Challenging<br/>
+                        <label htmlFor="desired_hours">How much do you want to practice this piece (hours per week)</label><br/>
+                        <input type="number" name="desired_hours" onChange={this.handleHours}/><br/>
+                        <label htmlFor="date_started">When did you start practicing this piece (if today, just leave this part blank)</label><br/>
+                        <input type="date" name="date"/><br/>
+                        <label htmlFor="comments">Comments</label><br/>
+                        <input type="text" name="comments" onChange={this.handleComments}/><br/>
                         <button>Submit</button>
                         </form>
                 </main>

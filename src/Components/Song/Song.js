@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SongServices from '../../Services/SongServices';
-import TokenService from '../../Services/TokenService';
+import UserSongServices from '../../Services/User_Songs_Services';
 import './Song.css'
 
 export default class Song extends Component{
@@ -9,13 +9,16 @@ export default class Song extends Component{
         this.state = {
             song: '',
             history: [],
-            info: []
+            info: [],
+            delete: false
         }
     }
     componentDidMount(){
-        const id = window.location.pathname.split("/")[2];
+        console.log('the user_song id is ' + window.location.pathname.split("/")[3])
+        const song_id = window.location.pathname.split("/")[2];
+        const user_id = window.localStorage.Token_Id
         const token = window.localStorage.Authorization;
-        SongServices.getSongById(id, token)
+        SongServices.getSongById(song_id, token)
             .then(res => {
                 if(res.ok){
                     return res.json();
@@ -30,7 +33,7 @@ export default class Song extends Component{
             })
             .catch(error => console.error(error))
         
-        SongServices.getSongHistory(id, token)
+        SongServices.getSongHistory(user_id, token)
             .then(res => {
                 if(res.ok){
                     return res.json();
@@ -45,7 +48,7 @@ export default class Song extends Component{
             })
             .catch(error => console.error(error))
             
-        SongServices.getSongInfo(id, token)
+        SongServices.getSongInfo(song_id, token)
             .then(res => {
                 if(res.ok){
                     return res.json();
@@ -58,7 +61,34 @@ export default class Song extends Component{
                 console.log('this.state.info is an array: ', Array.isArray(this.state.info))
                 console.log(this.state.info)
             })
+            .catch(error => console.error(error))
         }
+
+        handleDeleteConfirm = () => {
+            this.setState({
+                delete: true
+            })
+        }
+        //the handle delete method needs the user song id, something that this component doesn't have :(
+        handleDelete = (e) => {
+            const id = window.location.pathname.split("/")[3]
+            const token = window.localStorage.Authorization;
+            if(!this.state.delete){
+                alert('before deleting this song, you check the box below')
+            }else{
+                UserSongServices.deleteUserSong(token,id)
+                    .then(res => {
+                        if(res.ok){
+                            alert(`you have successfully deleted ${this.state.song.title} from your account, as well as all associated history with that song`)
+                            this.props.history.push('/SongList')
+                        }
+                    })
+                    .catch(error => console.error(error))
+            }
+            
+
+        }
+
 
     /*handleTotalPracticeHours(){
         let totalHoursPracticed = 0
@@ -116,7 +146,18 @@ export default class Song extends Component{
                 <section>
                     {history}
                 </section>
-                
+                <hr/>
+                <section>
+                    <h4>
+                        Click below to remote this song, click the button below<br/>
+                        By clicking below, this song, as well as all of the practice history of this song, will be perminately (and irritreviably) deleted from your account
+                    </h4><br/>
+                    <div>
+                        <label htmlFor="hours"/>I understand that I will be perminately removing {this.state.song.title} by {this.state.song.composer} and its practice history<br/>
+                    <   input type="checkbox" name="delete_confirmation" onClick={this.handleDeleteConfirm}/><br/>
+                    </div>
+                    <button onClick={this.handleDelete}>Delete this song anyway</button>
+                </section>
             </div>
             </>
         )
