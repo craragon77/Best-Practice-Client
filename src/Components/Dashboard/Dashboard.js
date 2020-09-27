@@ -10,7 +10,8 @@ export default class Dashboard extends Component{
         super(props);
         this.state = ({
             username: '',
-            data: []
+            data: [],
+            closestDate: ''
         })
     }
 
@@ -60,13 +61,15 @@ export default class Dashboard extends Component{
         let today = new Date();
         console.log(today)
         if(this.state.data.length > 0){
-            let closestDay = this.state.data[0]
+            let closestDay = this.state.data[0].practice_date
             for(let i = 0; i < this.state.data.length; i++){
-            if(closestDay.date_practiced <=  [i].date_practiced){
-                closestDay = i.date_practiced
+            if(closestDay.practice_date <=  [i].practice_date){
+                closestDay = i.practice_date
             } 
             console.log(closestDay)
-            return closestDay
+            this.setState({
+                closestDate: closestDay
+            })
             }
             //this is the worst thing thats ever happened to me
             console.log('the closest date to today is ' + closestDay)
@@ -91,7 +94,7 @@ export default class Dashboard extends Component{
                     {this.dateMath()} 
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
-                    {/*<p>Your most recent rehearsal was on </p> */}
+                    <p>Your most recent rehearsal was on </p>
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     <p>Your most rehearsed song is Lagrimas by Francisco Tarrega</p>
                     {/*<p>You have practiced 7.5 hours total this week</p> */}
