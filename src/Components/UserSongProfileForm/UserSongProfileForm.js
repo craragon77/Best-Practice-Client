@@ -12,15 +12,17 @@ export default class UserSongProfileForm extends Component{
             instrument: '',
             desired_hours: '',
             comments: '',
-            date_added: '',
-            inSystem: ''
+            date_added: ''
         }
     }
     componentDidMount(){
-        const id = window.location.pathname.split("/")[4]
+        const user_id = window.localStorage.Token_Id;
+        const song_id = window.location.pathname.split("/")[4]
         const token = window.localStorage.Authorization;
-        console.log(id)
-        SongServices.getSongById(id, token)
+        console.log(token)
+        console.log(user_id)
+        //console.log(song_id)
+        SongServices.getSongById(song_id, token)
         .then(res => {
             if(res.ok){
                 return res.json();
@@ -33,6 +35,27 @@ export default class UserSongProfileForm extends Component{
                 composer: resJson.composer
             })
         })
+        UserSongServices.simpleGetUserSongsConfirmation(user_id, token)
+        .then(res => {
+            if(res.ok){
+                return res.json();
+            }
+            
+        })
+        .then(resJson => {
+            console.log(resJson)
+            for(let i = 0; i < resJson.length; i++){
+                console.log('loop running')
+                //resJson[i]
+                if(resJson[i].song_id == song_id){
+                    console.log('the state changed')
+                    alert(`warning, ${this.state.title} by ${this.state.composer} has already been added to you repoitoire. While you are more than welcome to post this twice, be aware that you already have this song in your account`)
+                }
+                //return null
+            }
+        })
+        .catch(error => console.error(error))
+
     }
     handleInstrument = (e) => {
         this.setState({
@@ -68,6 +91,10 @@ export default class UserSongProfileForm extends Component{
             date_added: e.target.value
         })
     }
+
+    //handleInSystem = (e) => {
+      //  this.state.inSystem ? console.log('this activated') : null
+    //}
 
 
     handleSubmit = (e) => {

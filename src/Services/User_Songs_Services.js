@@ -47,10 +47,10 @@ const UserSongsServices = {
             }
         })
     },
-    idConfirmation(id, token){
-        return fetch(`${config.API_ENDPOINT}/api/user-song/${id}`, {
+    simpleGetUserSongsConfirmation(id, token){
+        return fetch(`${config.API_ENDPOINT}/api/user-songs/confirmation/${id}`, {
             headers: {
-                'Authorizatoin': `bearer ${token}`,
+                'Authorization': `bearer ${token}`,
                 "content-type": 'applicatoin/json'
             }
         })

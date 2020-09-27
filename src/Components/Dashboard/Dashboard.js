@@ -28,11 +28,12 @@ export default class Dashboard extends Component{
             //response lacks data :(
         })
         .then(resJson => {
+            console.log(resJson)
             //i also used to have this as resJson but it was undefined :( #PromiseHandlingIsHard
             this.setState({
                 data: resJson
             })
-            console.log(this.state.data)
+            //console.log(this.state.data)
         })
         .catch(err => {
             console.error(err)
@@ -57,15 +58,19 @@ export default class Dashboard extends Component{
 
     dateMath = () => {
         let today = new Date();
-        //console.log(Date(today))
-        let closestDay = this.state.data[0];
-        for(let i = 0; i < this.state.data.length; i++){
-            if(closestDay.date_practiced <=  i.date_practiced){
+        console.log(today)
+        if(this.state.data.length > 0){
+            let closestDay = this.state.data[0]
+            for(let i = 0; i < this.state.data.length; i++){
+            if(closestDay.date_practiced <=  [i].date_practiced){
                 closestDay = i.date_practiced
             } 
+            console.log(closestDay)
+            return closestDay
+            }
+            //this is the worst thing thats ever happened to me
+            console.log('the closest date to today is ' + closestDay)
         }
-        //this is the worst thing thats ever happened to me
-        console.log(closestDay)
     }
 
     
@@ -83,13 +88,13 @@ export default class Dashboard extends Component{
             <main className="Stats">
                 <h1>Welcome {this.state.username}!</h1>
                 <div>
-                    {this.dateMath}
+                    {this.dateMath()} 
                     <h2>Your Practice Trends</h2>
-                    <p>You have practiced 9 days in a row</p>
-        <p>Your most recent rehearsal was on </p>
+                    {/*<p>You have practiced 9 days in a row</p> */}
+                    {/*<p>Your most recent rehearsal was on </p> */}
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     <p>Your most rehearsed song is Lagrimas by Francisco Tarrega</p>
-                    <p>You have practiced 7.5 hours total this week</p>
+                    {/*<p>You have practiced 7.5 hours total this week</p> */}
                     <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60} minutes per day</p>
                 </div>
             </main>
