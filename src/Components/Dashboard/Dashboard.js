@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UserServices from '../../Services/UserServices';
 import TokenService from '../../Services/TokenService';
 import config from '../../config';
+import moment from 'moment';
 import "./Dashboard.css"
 
 
@@ -55,27 +56,25 @@ export default class Dashboard extends Component{
         .catch(err => {
             console.error(err);
         })
+    
     }
-
-    dateMath = () => {
-        let today = new Date();
-        console.log(today)
-        if(this.state.data.length > 0){
-            let closestDay = this.state.data[0].practice_date
-            for(let i = 0; i < this.state.data.length; i++){
-            if(closestDay.practice_date <=  [i].practice_date){
-                closestDay = i.practice_date
-            } 
-            console.log(closestDay)
-            this.setState({
-                closestDate: closestDay
-            })
+        dateMath = () =>{
+            let today = new Date();
+            console.log(today)
+            if(this.state.data.length > 0){
+                let closestDay = this.state.data[0].practice_date
+                for(let i = 0; i < this.state.data.length; i++){
+                if(closestDay.practice_date <=  [i].practice_date){
+                    closestDay = this.state.data[i]
+                } 
+                console.log(closestDay)
+                return moment(closestDay).format("MM/DD/YYYY h:mm:ss a")
+                }
+                //this is the worst thing thats ever happened to me
+                console.log('the closest date to today is ' + closestDay)
             }
-            //this is the worst thing thats ever happened to me
-            console.log('the closest date to today is ' + closestDay)
         }
-    }
-
+    
     
     render(){
         let totalHours = 0;
@@ -91,10 +90,10 @@ export default class Dashboard extends Component{
             <main className="Stats">
                 <h1>Welcome {this.state.username}!</h1>
                 <div>
-                    {this.dateMath()} 
+                    
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
-                    <p>Your most recent rehearsal was on </p>
+                    <p>Your most recent rehearsal was on {this.dateMath()} </p>
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     <p>Your most rehearsed song is Lagrimas by Francisco Tarrega</p>
                     {/*<p>You have practiced 7.5 hours total this week</p> */}
