@@ -52,6 +52,7 @@ export default class Login extends Component{
                 //how would I go about redirecting both updating the state and redirecting the user to the dashboard
                 //: res.json().then(res => {/*update state;*/ TokenService.saveAuthToken(res.authToken); /*do some other thing; this.props.history.push('/dashboard');*/})
             })
+            .catch(error => alert(error))
             
     }
     render(){
@@ -62,7 +63,7 @@ export default class Login extends Component{
                     <label for="username">Username</label><br/>
                     <input type="text" name="username" onChange={this.handleUpdateUsername}/><br/>
                     <label for="password">Password</label><br/>
-                    <input type="password" name="password" onChange={this.handleUpdatePassword}/><br/>
+                    <input type="text" name="password" onChange={this.handleUpdatePassword}/><br/>
                     <button onClick={this.handleSubmitAuth}>Login!</button>
                 </form>
             </>

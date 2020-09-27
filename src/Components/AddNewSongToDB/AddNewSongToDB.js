@@ -29,7 +29,7 @@ export default class AddNewSongToDB extends Component{
                 `you have successfully added ${title} by ${composer} to the archives!
                 you may find the new entry in the Find Songs page!`
                 ), this.props.history.push('/AddSong'))
-            .catch(error => console.error(error))
+            .catch(error => alert(error))
         }   
     }
 

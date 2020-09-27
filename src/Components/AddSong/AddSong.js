@@ -33,7 +33,7 @@ export default class AddSong extends Component{
             })
             console.log(this.state.results)
         })
-        .catch(err => console.error(err))
+        .catch(err => alert('we are unable to post your form', err))
     }
 
     handleTitleChange = (e)=> {

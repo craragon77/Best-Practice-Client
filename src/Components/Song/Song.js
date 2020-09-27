@@ -33,7 +33,7 @@ export default class Song extends Component{
                 })
                 console.log(this.state.song)
             })
-            .catch(error => console.error(error))
+            .catch(error => console.error('we are experiencing some technical difficulties. Try again later: ' + error))
         
         SongServices.getSongHistory(song_id, token)
             .then(res => {
@@ -48,7 +48,7 @@ export default class Song extends Component{
                 })
                 console.log(this.state.history)
             })
-            .catch(error => console.error(error))
+            .catch(error => console.error('we are experiencing some technical difficulties. Try again later: ' + error))
             
         SongServices.getSongInfo(song_id, token)
             .then(res => {

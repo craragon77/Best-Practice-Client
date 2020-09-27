@@ -3,6 +3,7 @@ import UserServices from '../../Services/UserServices';
 import TokenService from '../../Services/TokenService';
 import config from '../../config';
 import moment from 'moment';
+import {Link} from 'react-router-dom';
 import "./Dashboard.css"
 
 
@@ -38,7 +39,7 @@ export default class Dashboard extends Component{
             //console.log(this.state.data)
         })
         .catch(err => {
-            alert('something went wrong on our end. please excuse the technical difficulty')
+            alert('something went wrong on our end. please excuse the technical difficulty; ' + err)
         });
 
 
@@ -54,7 +55,7 @@ export default class Dashboard extends Component{
             console.log(this.state.username)
         })
         .catch(err => {
-            alert('something went wrong on our end. please excuse the technical difficulty')
+            alert('we are experiencing technical difficulties. Please stand by or try again later; ' + err)
         })
     
     }
@@ -72,9 +73,9 @@ export default class Dashboard extends Component{
                 //this.setState({
                     //mostRecentId: 
                 //})
-                const mostRecentDate = moment.max(dates);
-                console.log(practiceEntries.find(practiceEntry => practiceEntry.date === mostRecentDate)
-                )
+                const mostRecentDate = moment.max(dates).format("MM/DD/YYYY h:mm:ss a");
+                console.log(practiceEntries)
+                console.log(mostRecentDate);
                 return practiceEntries.find(practiceEntry => practiceEntry.date === mostRecentDate)
 
                 //let closestDay = this.state.data[0].practice_date
@@ -91,12 +92,25 @@ export default class Dashboard extends Component{
                 //console.log('the closest date to today is ' + closestDay)
             }
         }
-        /*utilityData = () => {
+        mostRecentPractice = () => {
             if(this.state.data.length > 0){
-                const {data} = this.state
-                const mostRecent = data.map(entires => console.log(entires.practice_date, entires.id))
-                
-
+                const {data} = this.state;
+                const dates = data.map(entry => moment(entry.practice_date))
+                return moment.max(dates).format("MM/DD/YYYY h:mm:ss a")
+            }
+        }
+        /*mostPracticedSong = () => {
+            const practiceData = this.state.data;
+            let counter = 0;
+            let catcherArray = []
+            for(let i = 0; i < practiceData.length; i++){
+                catcherArray.push(practiceData[i].song_id)
+            }
+            console.log(catcherArray)
+            for(let i = 0; i < catcherArray.length; i++){
+                let occurance = 1
+                if(catcherArray[i] = )
+            }
         } */
     
     
@@ -115,14 +129,15 @@ export default class Dashboard extends Component{
             <main className="Stats">
                 <h1>Welcome {this.state.username}!</h1>
                 <div>
-                    {this.mostRecentPractice}
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
-                    <p>Your most recent rehearsal was on {this.dateMath()} </p>
+                    <p>Your most recent rehearsal was on {this.mostRecentPractice()} </p>
                     <p>You have logged a total of {totalHours} hours of practice time</p>
-                    <p>Your most rehearsed song is Lagrimas by Francisco Tarrega</p>
                     {/*<p>You have practiced 7.5 hours total this week</p> */}
                     <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60} minutes per day</p>
+                    <Link to="/SongList">See your songs</Link><br/>
+                    <Link to="/AddSong">Add a new song</Link><br/>
+                    <Link to="/AddHours">Log Practice Hours</Link><br/>
                 </div>
             </main>
                 

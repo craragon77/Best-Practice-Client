@@ -31,7 +31,7 @@ export default class SearchSongResults extends Component{
                     alert(`you have successfully added ${title} by ${composer} to your repertoire!`)
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => alert('we are unable to handle your request' + error))
         }
     }
 

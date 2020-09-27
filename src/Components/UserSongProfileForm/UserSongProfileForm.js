@@ -54,7 +54,7 @@ export default class UserSongProfileForm extends Component{
                 //return null
             }
         })
-        .catch(error => console.error(error))
+        .catch(error => alert('we are experiencing some technical difficulties. Try again later; ' + error))
 
     }
     handleInstrument = (e) => {
@@ -124,7 +124,7 @@ export default class UserSongProfileForm extends Component{
                     this.props.history.push('/SongList')
                 }
             })
-            .catch(err => console.log(err.error.message))
+            .catch(err => console.log('we are unable to handle your request. please try again later: ' + err))
         }
         
         //

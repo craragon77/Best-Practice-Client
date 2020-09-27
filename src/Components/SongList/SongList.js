@@ -30,7 +30,7 @@ export default class SongList extends Component{
             console.log(this.state.songs)
         })
         .catch(err => {
-            console.error(err)
+            console.error('we are having errors find the right information, try again later; ' +  err)
         })
     }
 

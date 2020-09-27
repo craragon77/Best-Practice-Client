@@ -32,7 +32,7 @@ export default class AddHours extends Component{
                 })
                 console.log(this.state.songs)
             })
-            .catch(error => alert(error));
+            .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later', error));
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -53,9 +53,8 @@ export default class AddHours extends Component{
                 alert('you have successfully posted a practice session!')
             }
         })
-        .catch(error => console.error(error))
+        .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later', error))
         }
-        
     }
     handleDate = (e) => {
         this.setState({

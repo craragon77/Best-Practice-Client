@@ -67,10 +67,13 @@ export default class Signup extends Component{
                         repeat_password: ''
                     })
                 }).then(alert('you have successfully made an account. You will now be redirected to the login page to access it'), this.props.history.push('/Login'))
+
                 
                 //look into how one could throw in the jwt web token handling so they don't need to log in a second time
                 //(or not depending on how much time you have lolol)
-        )
+            )
+            .catch(error => alert(error))
+
         } 
     }
     render(){
