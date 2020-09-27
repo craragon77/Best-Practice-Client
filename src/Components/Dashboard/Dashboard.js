@@ -12,7 +12,7 @@ export default class Dashboard extends Component{
         this.state = ({
             username: '',
             data: [],
-            closestDate: ''
+            mostRecentId: ''
         })
     }
 
@@ -38,7 +38,7 @@ export default class Dashboard extends Component{
             //console.log(this.state.data)
         })
         .catch(err => {
-            console.error(err)
+            alert('something went wrong on our end. please excuse the technical difficulty')
         });
 
 
@@ -54,26 +54,51 @@ export default class Dashboard extends Component{
             console.log(this.state.username)
         })
         .catch(err => {
-            console.error(err);
+            alert('something went wrong on our end. please excuse the technical difficulty')
         })
     
     }
         dateMath = () =>{
-            let today = new Date();
-            console.log(today)
             if(this.state.data.length > 0){
-                let closestDay = this.state.data[0].practice_date
-                for(let i = 0; i < this.state.data.length; i++){
-                if(closestDay.practice_date <=  [i].practice_date){
-                    closestDay = this.state.data[i]
-                } 
-                console.log(closestDay)
-                return moment(closestDay).format("MM/DD/YYYY h:mm:ss a")
-                }
+                const {data} = this.state
+                const practiceEntries = data.map(entries => {
+                    return {
+                        title: entries.title,
+                        composer: entries.composer,
+                        date: moment(entries.practice_date)
+                    }
+                })
+                const dates = practiceEntries.map(entries => moment(entries.practice_date))
+                //this.setState({
+                    //mostRecentId: 
+                //})
+                const mostRecentDate = moment.max(dates);
+                console.log(practiceEntries.find(practiceEntry => practiceEntry.date === mostRecentDate)
+                )
+                return practiceEntries.find(practiceEntry => practiceEntry.date === mostRecentDate)
+
+                //let closestDay = this.state.data[0].practice_date
+                /*for(let i = 0; i < this.state.data.length; i++){
+                    if(closestDay <  [i].practice_date){
+                        console.log('the date changed!')
+                        closestDay = this.state.data[i]
+                    } 
+                    console.log(closestDay)
+                    return moment(closestDay).format("MM/DD/YYYY h:mm:ss a")
+                } */
+
                 //this is the worst thing thats ever happened to me
-                console.log('the closest date to today is ' + closestDay)
+                //console.log('the closest date to today is ' + closestDay)
             }
         }
+        /*utilityData = () => {
+            if(this.state.data.length > 0){
+                const {data} = this.state
+                const mostRecent = data.map(entires => console.log(entires.practice_date, entires.id))
+                
+
+        } */
+    
     
     
     render(){
@@ -82,15 +107,15 @@ export default class Dashboard extends Component{
             for(let i = 0; i < this.state.data.length; i++){
                 totalHours += this.state.data[i].practice_hours
             }
-            //let closestDay = this.state.data[0];
         }
-        //idk how to manipulate the date :(
+        //const utilityData = this.utilityData()
+        
         return(
             <>
             <main className="Stats">
                 <h1>Welcome {this.state.username}!</h1>
                 <div>
-                    
+                    {this.mostRecentPractice}
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
                     <p>Your most recent rehearsal was on {this.dateMath()} </p>
