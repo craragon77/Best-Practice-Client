@@ -147,15 +147,15 @@ export default class UserSongProfileForm extends Component{
                     </h3>
                         <form onSubmit={this.handleSubmit}>
                         <label htmlFor="instrument">Instrument</label><br/>
-                        <input type="text" name="instrument" onChange={this.handleInstrument}/><br/>
+                        <input type="text" name="instrument" onChange={this.handleInstrument} required/><br/>
                         <label htmlFor="difficulty">Difficulty Level of the Piece (based on your skill level)</label><br/>
-                            <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty} />Very Easy<br/>
-                            <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty} />Easy<br/>
-                            <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty} />Average<br/>
-                            <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty} />Challenging<br/>
-                            <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty} />Very Challenging<br/>
+                            <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty} required/>Very Easy<br/>
+                            <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty} required/>Easy<br/>
+                            <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty} required/>Average<br/>
+                            <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty} required/>Challenging<br/>
+                            <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty} required/>Very Challenging<br/>
                         <label htmlFor="desired_hours">How much do you want to practice this piece (hours per week)</label><br/>
-                        <input type="number" name="desired_hours" onChange={this.handleHours}/><br/>
+                        <input type="number" name="desired_hours" onChange={this.handleHours} required/><br/>
                         <label htmlFor="date_started">When did you start practicing this piece (if today, just leave this part blank)</label><br/>
                         <input type="date" name="date"/><br/>
                         <label htmlFor="comments">Comments</label><br/>

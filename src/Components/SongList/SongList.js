@@ -34,6 +34,22 @@ export default class SongList extends Component{
         })
     }
 
+    ifSongStateisEmpty = () => {
+        if(this.state.songs.length == 0){
+        return <h3>You don't have any songs in your repoitoire yet! Add something to practice <Link to="/AddSong">Here</Link></h3>
+        }else{
+            const music = this.state.songs.map((i) => {
+                return (
+                    <div key={i.id}>
+                        <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
+                    </div>
+                
+                )
+            })
+            return music
+        }
+    }
+
     render(){
         //console.log(Object.values(MUSIC[0])) <= this gives me an error?
         let musicArray = Object.values(MUSIC)
@@ -43,14 +59,16 @@ export default class SongList extends Component{
         /*let music = MUSIC.MUSIC.map((i) => 
             <Song key={i.id} song = {i}/>
         ) */
-        const music = this.state.songs.map((i) => {
+        //fallback if you mess it up
+        /*const music = this.state.songs.map((i) => {
             return <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
-        })
+        }) */
+        
         return(
             <>
                 <main className="SongList">
                     <h1>Your Songs</h1>
-                    {music}
+                    {this.ifSongStateisEmpty()}
                 </main>
             </>
         )

@@ -32,7 +32,7 @@ export default class AddHours extends Component{
                 })
                 console.log(this.state.songs)
             })
-            .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later', error));
+            .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later ', error));
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -51,8 +51,13 @@ export default class AddHours extends Component{
         .then(res => {
             if(res.ok){
                 alert('you have successfully posted a practice session!')
+                
             }
         })
+        .then(() => {
+            this.props.history.push('/SongList')
+        })
+        
         .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later', error))
         }
     }
@@ -94,7 +99,7 @@ export default class AddHours extends Component{
                     <select name="songs" value={this.state.song_selected} onChange={(e) => this.handleSong(e)} required>
                         {songOptions}
                     </select><br/>
-                    <label htmlFor="hours">How long did you practice?</label><br/>
+                    <label htmlFor="hours">How many hours did you practice?</label><br/>
                     <input type="number" name="hours" onChange={this.handleHours} required/><br/>
                     <label htmlFor="date">Date Practiced?</label><br/>
                     <input type="date" name="date" onChange={this.handleDate}/><br/>

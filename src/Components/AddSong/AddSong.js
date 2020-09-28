@@ -19,21 +19,25 @@ export default class AddSong extends Component{
         const token = window.localStorage.Authorization;
         e.preventDefault();
         console.log(this.state.title)
-        SongServices.getSongByTitle(token, this.state.title)
-        .then(res => {
-            if(res.ok){
-                return res.json()
-            }
-        })
-        .then(resJson => {
-            this.setState({
-                results: resJson,
-                searched: true,
-                title: ''
+        if(this.state.title == ' ' || this.state.title == null || !this.state.title){
+            alert('please use a valid search term to complete your search request')
+        }else{
+            SongServices.getSongByTitle(token, this.state.title)
+            .then(res => {
+                if(res.ok){
+                    return res.json()
+                }
             })
-            console.log(this.state.results)
-        })
-        .catch(err => alert('we are unable to post your form', err))
+            .then(resJson => {
+                this.setState({
+                    results: resJson,
+                    searched: true
+                })
+                console.log(this.state.results)
+            })
+            .catch(err => alert('we are unable to post your form', err))
+        }
+        
     }
 
     handleTitleChange = (e)=> {
@@ -46,6 +50,7 @@ export default class AddSong extends Component{
 
     handleResultsRendering = () => {
         console.log('render function activate')
+        //what can I do about this.state.results when its undefined
         if((this.state.results.length == 0) && (this.state.searched == true)){
             return null
         } else {
@@ -80,10 +85,10 @@ export default class AddSong extends Component{
         }) */
         return(
             <>
-                <form className="AddSong-Form">
+                <form className="AddSong-Form" onSubmit={this.handleSubmit}>
                     <h1>Add a New Song to Rehearse</h1>
                     <label htmlFor="title">Title</label><br/>
-                    <input type="text" name="title" onChange={this.handleTitleChange}/><br/>
+                    <input type="text" name="title" onChange={this.handleTitleChange} required/><br/>
                     {/*<label htmlFor="composer">Composer</label><br/>
                     <input type="text" name="composer"/><br/>
                     <label htmlFor="difficulty">Difficulty Level</label><br/>
@@ -96,7 +101,7 @@ export default class AddSong extends Component{
                     <input type="date" name="date-started"/><br/>
                     <label htmlFor="title">Hours Rehersed So Far (if any)</label><br/>
                     <input type="number" name="hours rehersed thus far"/><br/> */}
-                    <button onClick={this.handleSubmit}>Submit!</button>
+                    <button>Submit!</button>
                 </form>
                 <div className='results'>
                     {this.addToDatabaseLink()}

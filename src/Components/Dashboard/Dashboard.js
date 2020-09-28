@@ -96,7 +96,10 @@ export default class Dashboard extends Component{
             if(this.state.data.length > 0){
                 const {data} = this.state;
                 const dates = data.map(entry => moment(entry.practice_date))
-                return moment.max(dates).format("MM/DD/YYYY h:mm:ss a")
+                return (
+                    `Your most recent rehearsal was on ` + 
+                     moment.max(dates).format("MM/DD/YYYY h:mm:ss a")
+                    )
             }
         }
         /*mostPracticedSong = () => {
@@ -131,10 +134,10 @@ export default class Dashboard extends Component{
                 <div>
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
-                    <p>Your most recent rehearsal was on {this.mostRecentPractice()} </p>
+                    <p>{this.mostRecentPractice()} </p>
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     {/*<p>You have practiced 7.5 hours total this week</p> */}
-                    <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60} minutes per day</p>
+                    <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60 || 0} minutes per day</p>
                     <Link to="/SongList">See your songs</Link><br/>
                     <Link to="/AddSong">Add a new song</Link><br/>
                     <Link to="/AddHours">Log Practice Hours</Link><br/>
