@@ -1,5 +1,5 @@
 export default{
     TOKEN_KEY: 'Authorization',
     ID_TOKEN: 'Token_Id',
-    API_ENDPOINT: 'http://localhost:8000'
+    API_ENDPOINT: 'https://floating-oasis-69205.herokuapp.com'
 }

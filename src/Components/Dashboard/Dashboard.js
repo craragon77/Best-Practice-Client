@@ -96,10 +96,18 @@ export default class Dashboard extends Component{
             if(this.state.data.length > 0){
                 const {data} = this.state;
                 const dates = data.map(entry => moment(entry.practice_date))
-                return (
-                    `Your most recent rehearsal was on ` + 
+                console.log(dates)
+                if(dates[0]._d == 'Invalid Date'){
+                    return 'There are no practice hours logged yet'
+                } else{
+                    return (
+                        `Your most recent rehearsal was on ` + 
                      moment.max(dates).format("MM/DD/YYYY h:mm:ss a")
-                    )
+                    )       
+                }
+                
+                //console.log(dates)
+                     
             }
         }
         /*mostPracticedSong = () => {

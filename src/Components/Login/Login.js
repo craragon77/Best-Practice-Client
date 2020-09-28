@@ -58,11 +58,11 @@ export default class Login extends Component{
     render(){
         return(
             <>   
-                <form class="Login-Form">
+                <form className="Login-Form">
                     <h1>Login</h1>
-                    <label for="username">Username</label><br/>
+                    <label htmlFor="username">Username</label><br/>
                     <input type="text" name="username" onChange={this.handleUpdateUsername}/><br/>
-                    <label for="password">Password</label><br/>
+                    <label htmlFor="password">Password</label><br/>
                     <input type="password" name="password" onChange={this.handleUpdatePassword}/><br/>
                     <button onClick={this.handleSubmitAuth}>Login!</button>
                 </form>

@@ -82,11 +82,11 @@ export default class Signup extends Component{
                 
                 <form className="Signup-Form">
                     <h1>Sign Up</h1>
-                    <label for="username">Username</label><br/>
+                    <label htmlFor="username">Username</label><br/>
                     <input type="text" name="username" onChange={this.handleUsername}/><br/>
-                    <label for="password">Password</label><br/>
+                    <label htmlFor="password">Password</label><br/>
                     <input type="password" name="password" onChange={this.handlePassword}/><br/>
-                    <label for="password">Repeat-Password</label><br/>
+                    <label htmlFor="password">Repeat-Password</label><br/>
                     <input type="password" name="repeat-password" onChange={this.handleRepeatPassword}/><br/>
                     <button onClick={this.handleNewUser}>Sign Up!</button>
                 </form>

@@ -95,7 +95,7 @@ export default class Song extends Component {
         console.log(this.state.history)
         return this.state.history.map((entry, i) => {
             if (!this.state.history[i].practice_date) {
-                return <h3>You have yet to log any practice session for this piece</h3>
+                return <h3 key={entry.id}>You have yet to log any practice session for this piece</h3>
             } else {
                 return (
                     <div key={entry.id}>
@@ -122,7 +122,7 @@ export default class Song extends Component {
             )
         }) */
 
-        let startDate, instrument, desired_hours, difficulty
+        let startDate, instrument, desired_hours, difficulty, comments
         let totalHours = 0;
         if (this.state.info && this.state.info.length > 0) {
             console.log(this.state.info[0].date_added)
@@ -130,6 +130,7 @@ export default class Song extends Component {
             instrument = this.state.info[0].instrument
             desired_hours = this.state.info[0].desired_hours
             difficulty = this.state.info[0].difficulty
+            comments = this.state.info[0].comments
             for (let i = 0; i < this.state.history.length; i++) {
                 console.log(this.state.history[i].practice_date, new Date(this.state.history[i].practice_date))
                 totalHours += this.state.history[i].practice_hours
@@ -154,6 +155,7 @@ export default class Song extends Component {
                         <p>You have averaged {(Math.round(totalHours) / this.state.history.length) * 60} minutes per practice session</p>
                         <p>Rehearsal for {this.state.song.title} began on: {moment(startDate).format("MM/DD/YYYY h:mm:ss a")}</p>
                         <p>Difficulty level: {difficulty}</p>
+                        <p>Comments: {comments || `none`}</p>
                     </section>
                     <section>
                         {this.mapOverhistory()}
