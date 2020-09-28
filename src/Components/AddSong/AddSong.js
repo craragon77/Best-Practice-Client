@@ -19,10 +19,11 @@ export default class AddSong extends Component{
         const token = window.localStorage.Authorization;
         e.preventDefault();
         console.log(this.state.title)
-        if(this.state.title == ' ' || this.state.title == null || !this.state.title){
+        const title = this.state.title.trim()
+        if(title == ' ' || title == null || !title){
             alert('please use a valid search term to complete your search request')
         }else{
-            SongServices.getSongByTitle(token, this.state.title)
+            SongServices.getSongByTitle(token, title)
             .then(res => {
                 if(res.ok){
                     return res.json()
@@ -36,6 +37,7 @@ export default class AddSong extends Component{
                 console.log(this.state.results)
             })
             .catch(err => alert('we are unable to post your form', err))
+            //why isn't the catch activating?
         }
         
     }
@@ -51,8 +53,8 @@ export default class AddSong extends Component{
     handleResultsRendering = () => {
         console.log('render function activate')
         //what can I do about this.state.results when its undefined
-        if((this.state.results.length == 0) && (this.state.searched == true)){
-            return null
+        if((this.state.results == null || this.state.results.length == 0) &&(this.state.searched == true)){
+            return <h4>We did not find anything in our database based on your search. <br/> You may research under a new term or contribute to the song to our database with the link above</h4>
         } else {
             return this.state.results.map((i) => {
                 return (
