@@ -1,3 +1,10 @@
 .App{
     padding: 20px;
+    height: 100vh;
+    background-image: url('./music_pics/music\(tint\)3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border: 1px solid white;
 }
