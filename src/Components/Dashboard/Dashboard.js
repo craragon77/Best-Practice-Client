@@ -100,9 +100,16 @@ export default class Dashboard extends Component{
                 if(dates[0]._d == 'Invalid Date'){
                     return 'There are no practice hours logged yet'
                 } else{
+                    const datesCleaned = []
+                    for(let i = 0; i < dates.length; i++){
+                        console.log(dates[i]._d instanceof Date)
+                        if(!isNaN(dates[i]._i)){
+                            datesCleaned.push(dates[i])
+                        }
+                }
                     return (
                         `Your most recent rehearsal was on ` + 
-                     moment.max(dates).format("MM/DD/YYYY h:mm:ss a")
+                     moment.max(datesCleaned).format("MM/DD/YYYY h:mm:ss a")
                     )       
                 }
                 

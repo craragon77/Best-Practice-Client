@@ -66,6 +66,9 @@ export default class Login extends Component{
                     <input type="password" name="password" onChange={this.handleUpdatePassword}/><br/>
                     <button onClick={this.handleSubmitAuth}>Login!</button>
                 </form>
+                <div className="Demo">
+                    <p>Feel free to use the demo account!<br/>Username: DemoUser<br/>Password: Demopassword1!</p>
+                </div>
             </>
         )
     }
