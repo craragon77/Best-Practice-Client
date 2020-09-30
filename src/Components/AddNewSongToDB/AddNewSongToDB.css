@@ -1,0 +1,17 @@
+.AddNewSongForm{
+    text-align: center;
+    border: 2px solid white;
+    margin: 20px;
+    padding: 10px;
+}
+#disclaimer{
+    font-weight: 600;
+}
+.AddNewSongForm > input{
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.AddNewSongForm > button{
+    height: 35px;
+    width: 75px;
+}

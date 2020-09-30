@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import SongServices from '../../Services/SongServices';
+import './AddNewSongToDB.css'
 
 export default class AddNewSongToDB extends Component{
     constructor(props){
@@ -50,15 +51,15 @@ export default class AddNewSongToDB extends Component{
         return(
             <>
                 <form className="AddNewSongForm" onSubmit={this.handleSubmit}>
-                    <h1>Add New Song to the Database</h1>
-                    <h3>
+                    <h3>Add New Song to the Database</h3>
+                    <p id="disclaimer">
                         By adding new songs for others to practice, you help expand the Best Practice database library,
-                        which allow other musicians to practice the same pieces and improve their musical ability and repoitoire.
+                        which allow other musicians to practice the same pieces and improve their musical ability and repoitoire.<br/>
                         When posting a new song, please add all information available (such as the catoloague number) so others have access to it.
-                    </h3>
-                    <label htmlFor="title">Title</label>
+                    </p>
+                    <label htmlFor="title">Title</label><br/>
                     <input type="text" className='title_input' required onChange={this.handleTitle}/><br/>
-                    <label htmlFor="composer">Composer/Artist</label>
+                    <label htmlFor="composer">Composer/Artist</label><br/>
                     <input type="text" className="composer" required onChange={this.handleComposer}/><br/>
                     <button type="submit">Submit to Database</button>
                </form>
