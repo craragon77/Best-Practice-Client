@@ -1,5 +1,18 @@
 .Stats{
     text-align: center;
-    border: 2px solid black;
-    margin-top: 30px;
+    border: 2px solid white;
+    margin: 20px;
+}
+.Stats > div > a {
+    color: lightblue;
+    font-weight: 600;
+}
+
+.Stats > div > p{
+    font-weight: 600;
+}
+
+#username{
+    color: lightblue;
+    font-style: oblique;
 }

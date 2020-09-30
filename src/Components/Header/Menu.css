@@ -1,0 +1,12 @@
+.Header-Links{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-evenly;
+    background-color: black;
+}
+.link-container{
+    width: 100%;
+}
+.inner-link-container > a{
+    color: white;
+}

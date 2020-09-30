@@ -1,8 +1,7 @@
 .App{
     padding: 20px;
-    height: 100vh;
-    background-image: url('./music_pics/music\(tint\)3.jpg');
-    background-position: center;
+    background-image: url('./music_pics/music\(tint\)6.jpg');
+    background-position: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;

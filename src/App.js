@@ -19,10 +19,21 @@ import UserSongProfileForm from './Components/UserSongProfileForm/UserSongProfil
 import './App.css'
 
 function App() {
+  const styles = {
+    main: {
+      display:'flex',
+      flexDirection:'column',
+      alignItems: 'flex-start',
+      //height: '100vh',
+    }
+  }
   return (
     <div className="App">
-      <TitleBar/>
-      <Header />
+      
+        <div style={styles.main}>
+          <Header />
+        </div>
+        <TitleBar/>
       <Switch>
         <Route exact path="/" component={LandingPage}/>
         <PrivateRoute path="/Dashboard" component={Dashboard}/>

@@ -1,11 +1,18 @@
 .Login-Form{
     text-align: center;
-    border: 2px solid black;
-    margin-top: 30px;
+    border: 2px solid white;
+    margin: 20px;
     padding: 10px;
+
 }
 .Demo{
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+}
+
+button{
+    margin: 20px;
+    height: 25px;
+    width: 50px;
 }

@@ -145,7 +145,7 @@ export default class Dashboard extends Component{
         return(
             <>
             <main className="Stats">
-                <h1>Welcome {this.state.username}!</h1>
+                <h1>Welcome <span id="username">{this.state.username}</span>!</h1>
                 <div>
                     <h2>Your Practice Trends</h2>
                     {/*<p>You have practiced 9 days in a row</p> */}
