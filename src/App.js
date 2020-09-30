@@ -24,12 +24,11 @@ function App() {
       display:'flex',
       flexDirection:'column',
       alignItems: 'flex-start',
-      //height: '100vh',
+      //height: '100vh'
     }
   }
   return (
     <div className="App">
-      
         <div style={styles.main}>
           <Header />
         </div>

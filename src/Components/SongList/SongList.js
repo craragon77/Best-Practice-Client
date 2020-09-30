@@ -40,7 +40,7 @@ export default class SongList extends Component{
         }else{
             const music = this.state.songs.map((i) => {
                 return (
-                    <div key={i.id}>
+                    <div key={i.id} className="song-list">
                         <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
                     </div>
                 

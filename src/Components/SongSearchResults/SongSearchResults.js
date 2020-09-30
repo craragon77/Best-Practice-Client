@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import UserSongServices from '../../Services/User_Songs_Services';
 import {Link} from 'react-router-dom';
+import './SongSearchResults';
 
 export default class SearchSongResults extends Component{
     constructor(props){
@@ -38,28 +39,10 @@ export default class SearchSongResults extends Component{
     render(){
         console.log(this.props.id)
         return(
-            <>
+            <div clalssName="search-results-container">
                 <h3>{this.props.title} by {this.props.composer}</h3>
                 <Link to={`/AddUserSong/form/post/${this.props.id}`}>Add To Repertoire</Link>
-                {/*<form onSubmit>
-                    
-                    <label htmlFor="instrument">Instrument</label>
-                    <input type="text" name="instrument" onChange={this.handleInstrument}/>
-                    <label htmlFor="difficulty">Difficulty Level</label>
-                    <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty}>Very Easy</input>
-                    <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty}>Easy</input>
-                    <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty}>Average</input>
-                    <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty}>Challenging</input>
-        <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty}>Very Challenging</input>
-                    <label htmlFor="desired_hours">How much do you want to practice this piece (per week)</label>
-                    <input type="number" name="desired_hours" onChange={this.handleInstrument}/>
-                    <label htmlFor="comments">Comments</label>
-                    <input type="text" name="comments" onChange={this.handleInstrument}/>
-                    <button>Submit</button>
-                </form>*/}
-            </>
-                
-            
+            </div>
         )
     }
 }

@@ -99,9 +99,9 @@ export default class Song extends Component {
             } else {
                 return (
                     <div key={entry.id}>
-                        <hr />
                         <p>Date: {moment(entry.practice_date).format("MM/DD/YYYY h:mm:ss a")}</p>
                         <p>Hours Logged During Practice: {entry.practice_hours}</p>
+                        <hr />
                     </div>
                 )
             }
@@ -145,9 +145,9 @@ export default class Song extends Component {
         return (
             <>
                 <div className="Song-Container">
+                    <section id="song-stats">
                     <h1>{this.state.song.title}</h1>
                     <h2>By {this.state.song.composer}</h2>
-                    <section>
                         <p>played for the {instrument}</p>
                         <p>Desired Hours per week: {desired_hours} hours per week</p>
                         <p>Desired Average Hours per day: {Math.round(desired_hours / 7)} hours per day</p>
@@ -157,11 +157,10 @@ export default class Song extends Component {
                         <p>Difficulty level: {difficulty}</p>
                         <p>Comments: {comments || `none`}</p>
                     </section>
-                    <section>
+                    <section id="song-history">
                         {this.mapOverhistory()}
                     </section>
-                    <hr />
-                    <section>
+                    <section id="delete-section">
                         <h4>
                             Click below to remote this song, click the button below<br />
                         By clicking below, this song, as well as all of the practice history of this song, will be perminately (and irritreviably) deleted from your account

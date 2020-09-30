@@ -1,3 +1,6 @@
 .SongList > h1{
     text-align: center;
 }
+.song-list > a{
+    color: lightblue;
+}

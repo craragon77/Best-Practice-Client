@@ -1,5 +1,26 @@
-.Song-Container{
-    border: 1px solid black;
-    margin-top: 10px;
+#song-stats, #song-history{
+    border: 1px solid white;
+    margin: 20px;
     padding-left: 10px;
+    padding-right: 10px;
+}
+
+#delete-section > button{
+    height: 40px;
+    width: 170px;
+    background-color: maroon;
+    font-weight: 700;
+    border: 1px solid white;
+    color: white;
+}
+
+#delete-section{
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid white;
+    text-align: center;
 }

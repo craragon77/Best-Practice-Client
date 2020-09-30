@@ -67,6 +67,7 @@ export default class AddSong extends Component{
         }
     }
 
+
     addToDatabaseLink = () => {
         console.log('the db link has activated');
         if(this.state.searched == true){
@@ -85,6 +86,14 @@ export default class AddSong extends Component{
         /*const results = this.state.results.map((i) => {
             return <SongSearchResults title={this.state.results[i].title} composer={this.state.results[i].composer}/>
         }) */
+        const styles={
+            results: this.state.searched ? {
+                textAlign: 'center',
+                border: '2px solid white',
+                margin: '20px',
+                padding: '10px',
+            }: null
+        }
         return(
             <>
                 <form className="AddSong-Form" onSubmit={this.handleSubmit}>
@@ -105,7 +114,7 @@ export default class AddSong extends Component{
                     <input type="number" name="hours rehersed thus far"/><br/> */}
                     <button>Submit!</button>
                 </form>
-                <div className='results'>
+                <div style={styles.results}>
                     {this.addToDatabaseLink()}
                     {this.handleResultsRendering()}
                 </div>

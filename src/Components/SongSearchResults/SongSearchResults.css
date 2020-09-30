@@ -1,9 +1,6 @@
-.Title-Header{
+.search-results-container{
     text-align: center;
     border: 2px solid white;
     margin: 20px;
-}
-#minuet{
-    font-style: oblique;
-    color: lightblue
+    padding: 10px;
 }

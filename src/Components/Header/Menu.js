@@ -50,13 +50,13 @@ export default class Menu extends Component{
 
     
     render(){
-        /*const styles={
+        const styles={
             //these instructions don't seem to be taking
             container: {
               position: 'absolute',
               top: 0,
               left: 0,
-              height: this.state.open? '100%': 0,
+              height: this.state.open? '75%': 0,
               width: '100vw',
               display: 'flex',
               flexDirection: 'column',
@@ -69,12 +69,12 @@ export default class Menu extends Component{
             menuList: {
               paddingTop: '3rem',
             }
-          } */
+          }
         return(
-            <div className="link-container">
+            <div style={styles.container}>
                 {
                 this.state.open?
-                <div className="inner-link-container">
+                <div style={styles.menuList}>
                     <Link to="/" onClick={this.props.onClick}>Home</Link><br/>
                     <Link to="/Dashboard" onClick={this.props.onClick}>Your Practice Stats</Link><br/>
                     <Link to="/AddHours" onClick={this.props.onClick}>Log Practice Hours</Link><br/>

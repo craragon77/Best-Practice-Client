@@ -9,3 +9,7 @@ button{
     height: 25px;
     width: 75px;
 }
+.Signup-Form > input{
+    padding-left: 5px;
+    border-radius: 5px;
+}

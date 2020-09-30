@@ -1,6 +1,10 @@
 .AddHours-Form{
     text-align: center;
-    border: 2px solid black;
-    margin-top: 30px;
+    border: 2px solid white;
+    margin: 20px;
     padding: 10px;
+}
+.AddHours-Form > input{
+    padding-left: 5px;
+    border-radius: 5px;
 }
