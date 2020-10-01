@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import TokenService from '../../Services/TokenService';
 import Menu from './Menu';
 import MenuButton from './MenuButton';
-import Footer from './footer';
 import "./Header.css";
 
 export default class Header extends Component{

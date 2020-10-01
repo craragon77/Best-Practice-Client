@@ -48,7 +48,7 @@ export default class UserSongProfileForm extends Component{
             for(let i = 0; i < resJson.length; i++){
                 console.log('loop running')
                 //resJson[i]
-                if(resJson[i].song_id == song_id){
+                if(resJson[i].song_id === song_id){
                     console.log('the state changed')
                     alert(`Alert: ${this.state.title} by ${this.state.composer} has already been added to your repertoire. You can proceed to add this to your repertoire again or, if this was a mistake, you can return to the home page.`)
                 }
@@ -112,7 +112,7 @@ export default class UserSongProfileForm extends Component{
         const comments = this.state.comments;
         const user_song = {song_id,title, composer, instrument, difficulty, desired_hours, comments, date_added}
         console.log(user_song)
-        if(date_added == ""){
+        if(date_added === ""){
             date_added = Date()
         }
         if(({instrument, difficulty, desired_hours} === null) || !{instrument, difficulty, desired_hours}){

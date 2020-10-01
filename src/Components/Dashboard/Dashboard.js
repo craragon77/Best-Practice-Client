@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import UserServices from '../../Services/UserServices';
-import TokenService from '../../Services/TokenService';
-import config from '../../config';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 import "./Dashboard.css"
@@ -97,7 +95,7 @@ export default class Dashboard extends Component{
                 const {data} = this.state;
                 const dates = data.map(entry => moment(entry.practice_date))
                 console.log(dates)
-                if(dates[0]._d == 'Invalid Date'){
+                if(dates[0]._d === 'Invalid Date'){
                     return 'There are no practice hours logged yet'
                 } else{
                     const datesCleaned = []

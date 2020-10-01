@@ -18,7 +18,6 @@ export default class Song extends Component {
         //console.log('the user_song id is ' + window.location.pathname.split("/")[3])
 
         const song_id = window.location.pathname.split("/")[2];
-        const user_song_id = window.localStorage.Token_Id
         const token = window.localStorage.Authorization;
         SongServices.getSongById(song_id, token)
             .then(res => {

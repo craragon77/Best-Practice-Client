@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class MenuButton extends React.Component {
+export default class MenuButton extends Component {
     constructor(props){
       super(props);
       this.state={
@@ -8,7 +8,7 @@ export default class MenuButton extends React.Component {
         color: this.props.color? this.props.color:'black',
       }
     }
-    componentWillReceiveProps(nextProps){
+    UNSAFE_componentWillReceiveProps(nextProps){
         if(nextProps.open !== this.state.open){
           this.setState({open:nextProps.open});
         }

@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import MUSIC from '../Dummy-Music/Dummy-Music';
-import SongServices from '../../Services/SongServices';
 import UserSongServices from '../../Services/User_Songs_Services';
-import PracticeHistoryService from '../../Services/Practice_History_Services';
 import './AddHours.css'
 import PracticeHistoryServices from '../../Services/Practice_History_Services';
 
@@ -26,7 +23,6 @@ export default class AddHours extends Component{
                 }
             })
             .then(resJson => {
-                //console.log(resJson)
                 this.setState({
                     songs: resJson
                 })

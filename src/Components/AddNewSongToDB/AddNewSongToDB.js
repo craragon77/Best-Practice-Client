@@ -15,9 +15,9 @@ export default class AddNewSongToDB extends Component{
         const title = this.state.title;
         const composer = this.state.composer;
         const newSong = {title, composer};
-        if((!title) || (title === null || title == " ")){
+        if((!title) || (title === null || title === " ")){
             alert('please include the title of the song')
-        } else if((!composer) || (composer === null || composer == " ")){
+        } else if((!composer) || (composer === null || composer === " ")){
             alert('please include the composer or artist of the song')
         } else{
             SongServices.postNewSong(token, newSong)

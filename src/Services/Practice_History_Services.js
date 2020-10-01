@@ -1,4 +1,3 @@
-import TokenService from './TokenService';
 import config from '../config';
 
 const PracticeHistoryServices = {

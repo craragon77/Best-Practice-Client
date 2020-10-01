@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import MUSIC from '../Dummy-Music/Dummy-Music';
-import Song from '../Song/Song';
 import UserSongServices from '../../Services/User_Songs_Services';
 import './SongList.css';
 import {Link} from 'react-router-dom';
@@ -35,7 +34,7 @@ export default class SongList extends Component{
     }
 
     ifSongStateisEmpty = () => {
-        if(this.state.songs.length == 0){
+        if(this.state.songs.length === 0){
         return <h3>You don't have any songs in your repoitoire yet! Add something to practice <Link to="/AddSong">Here</Link></h3>
         }else{
             const music = this.state.songs.map((i) => {
