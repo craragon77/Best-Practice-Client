@@ -38,14 +38,12 @@ export default class AddNewSongToDB extends Component{
         this.setState({
             title: e.target.value
         })
-        console.log(this.state.title);
     }
 
     handleComposer = (e) => {
         this.setState({
             composer: e.target.value
         })
-        console.log(this.state.title)
     }
     render(){
         return(

@@ -37,7 +37,6 @@ export default class SearchSongResults extends Component{
     }
 
     render(){
-        console.log(this.props.id)
         return(
             <div className="search-results-container">
                 <h3>{this.props.title} by {this.props.composer}</h3>

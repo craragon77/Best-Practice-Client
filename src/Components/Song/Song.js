@@ -15,8 +15,6 @@ export default class Song extends Component {
         }
     }
     componentDidMount() {
-        //console.log('the user_song id is ' + window.location.pathname.split("/")[3])
-
         const song_id = window.location.pathname.split("/")[2];
         const token = window.localStorage.Authorization;
         SongServices.getSongById(song_id, token)
@@ -26,11 +24,9 @@ export default class Song extends Component {
                 }
             })
             .then(resJson => {
-                //console.log(resJson)
                 this.setState({
                     song: resJson
                 })
-                console.log(this.state.song)
             })
             .catch(error => console.error('we are experiencing some technical difficulties. Try again later: ' + error))
 
@@ -41,11 +37,9 @@ export default class Song extends Component {
                 }
             })
             .then(resJson => {
-                //console.log(resJson)
                 this.setState({
                     history: resJson
                 })
-                console.log(this.state.history)
             })
             .catch(error => console.error('we are experiencing some technical difficulties. Try again later: ' + error))
 
@@ -59,12 +53,8 @@ export default class Song extends Component {
                 this.setState({
                     info: resJson
                 })
-                console.log('this.state.info is an array: ', Array.isArray(this.state.info))
-                console.log(this.state.info)
             })
             .catch(error => console.error(error))
-
-        console.log('the history is ' + this.state.history)
     }
 
     handleDeleteConfirm = () => {
@@ -72,7 +62,6 @@ export default class Song extends Component {
             delete: true
         })
     }
-    //the handle delete method needs the user song id, something that this component doesn't have :(
     handleDelete = (e) => {
         const user_song_id = window.location.pathname.split("/")[3]
         const token = window.localStorage.Authorization;
@@ -91,7 +80,6 @@ export default class Song extends Component {
 
     }
     mapOverhistory = (e) => {
-        console.log(this.state.history)
         return this.state.history.map((entry, i) => {
             if (!this.state.history[i].practice_date) {
                 return <h3 key={entry.id}>You have yet to log any practice session for this piece</h3>
@@ -111,33 +99,18 @@ export default class Song extends Component {
 
 
     render() {
-        /*const history = this.state.history.map((i) => {
-            return(
-            <div key={i.id}>
-                <hr/>
-                <p>Date: {moment(i.practice_date).format("MM/DD/YYYY h:mm:ss a")}</p>
-                <p>Hours Logged During Practice: {i.practice_hours}</p>
-            </div>
-            )
-        }) */
-
         let startDate, instrument, desired_hours, difficulty, comments
         let totalHours = 0;
         if (this.state.info && this.state.info.length > 0) {
-            console.log(this.state.info[0].date_added)
             startDate = this.state.info[0].date_added
             instrument = this.state.info[0].instrument
             desired_hours = this.state.info[0].desired_hours
             difficulty = this.state.info[0].difficulty
             comments = this.state.info[0].comments
             for (let i = 0; i < this.state.history.length; i++) {
-                console.log(this.state.history[i].practice_date, new Date(this.state.history[i].practice_date))
                 totalHours += this.state.history[i].practice_hours
-                //also why is this calling a billion times
+                
             }
-
-            console.log(totalHours)
-            //console.log(totalHoursPracticed)
         }
 
 

@@ -13,14 +13,8 @@ export default class Signup extends Component{
         }
     }
 
-    /*handleClick = (e) => {
-        e.preventDefault();
-        alert('The button was clicked!')
-    } */
-
     handleUsername = (e) => {
         e.preventDefault();
-        console.log('username updated');
         this.setState({
             username: e.target.value
         });
@@ -28,7 +22,6 @@ export default class Signup extends Component{
 
     handlePassword = (e) => {
         e.preventDefault();
-        console.log('password update');
         this.setState({
             password: e.target.value
         });
@@ -36,7 +29,6 @@ export default class Signup extends Component{
 
     handleRepeatPassword = (e) => {
         e.preventDefault();
-        console.log('repeat password updated')
         this.setState({
             repeat_password: e.target.value
         });
@@ -47,9 +39,6 @@ export default class Signup extends Component{
         const username = this.state.username;
         const password = this.state.password;
         const repeat_password = this.state.repeat_password;
-        console.log('the username is: ' + username);
-        console.log('the password is: ' + password);
-        console.log('the username is: ' + repeat_password);
         if(password !== repeat_password){
             alert('your passwords must match before you can make an account')
         } else{
@@ -67,10 +56,6 @@ export default class Signup extends Component{
                         repeat_password: ''
                     })
                 }).then(alert('you have successfully made an account. You will now be redirected to the login page to access it'), this.props.history.push('/Login'))
-
-                
-                //look into how one could throw in the jwt web token handling so they don't need to log in a second time
-                //(or not depending on how much time you have lolol)
             )
             .catch(error => alert(error))
 

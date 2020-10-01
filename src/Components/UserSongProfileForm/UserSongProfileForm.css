@@ -24,24 +24,24 @@ form > input{
     }
 }
 @media screen and (min-width: 1000px){
-    form > input{
+    .form-itself > form > input{
         height: 25px;
         width: 200px;
         font-size: 20px;
     }
-    form > label{
+    .form-itself > form > label{
         font-size: 20px;
     }
-    form > button{
+    .form-itself > form > button{
         font-size: 18px;
     }
-    h3{
+    .form-itself > h3{
         font-size: 25px;
     }
-    form > div > label{
+    .form-itself > form > div > label{
         font-size: 20px;
     }
-    .radio-button{
+    .form-itself > .radio-button{
         font-size: 20px;
     }
 }

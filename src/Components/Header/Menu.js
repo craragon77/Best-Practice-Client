@@ -51,7 +51,6 @@ export default class Menu extends Component{
     
     render(){
         const styles={
-            //these instructions don't seem to be taking
             container: {
               position: 'absolute',
               top: 0,

@@ -16,7 +16,6 @@ export default class AddSong extends Component{
     handleSubmit = (e) => {
         const token = window.localStorage.Authorization;
         e.preventDefault();
-        console.log(this.state.title)
         const title = this.state.title.trim()
         if(title === ' ' || title === null || !title){
             alert('please use a valid search term to complete your search request')
@@ -32,10 +31,8 @@ export default class AddSong extends Component{
                     results: resJson,
                     searched: true
                 })
-                console.log(this.state.results)
             })
             .catch(err => alert('we are unable to post your form', err))
-            //why isn't the catch activating?
         }
         
     }
@@ -45,12 +42,10 @@ export default class AddSong extends Component{
         this.setState({
             title: e.target.value
         })
-        console.log(this.state.title)
+        
     }
 
     handleResultsRendering = () => {
-        console.log('render function activate')
-        //what can I do about this.state.results when its undefined
         if((this.state.results === null || this.state.results.length === 0) &&(this.state.searched === true)){
             return <h4>We did not find anything in our database based on your search. <br/> You may research under a new term or contribute to the song to our database with the link above</h4>
         } else {
@@ -67,7 +62,6 @@ export default class AddSong extends Component{
 
 
     addToDatabaseLink = () => {
-        console.log('the db link has activated');
         if(this.state.searched === true){
             return(
                 <section>
@@ -80,14 +74,9 @@ export default class AddSong extends Component{
     }
     
     render(){
-        
-        /*const results = this.state.results.map((i) => {
-            return <SongSearchResults title={this.state.results[i].title} composer={this.state.results[i].composer}/>
-        }) */
         const styles={
             results: this.state.searched ? {
                 textAlign: 'center',
-                //border: '2px solid white',
                 margin: '20px',
                 padding: '10px',
             }: null,
@@ -103,18 +92,6 @@ export default class AddSong extends Component{
                     <h1>Add a New Song to Rehearse</h1>
                     <label htmlFor="title">Title</label><br/>
                     <input type="text" name="title" onChange={this.handleTitleChange} required/><br/>
-                    {/*<label htmlFor="composer">Composer</label><br/>
-                    <input type="text" name="composer"/><br/>
-                    <label htmlFor="difficulty">Difficulty Level</label><br/>
-                    <input type="radio" name="difficulty"/>Very Easy
-                    <input type="radio" name="difficulty"/>Easy
-                    <input type="radio" name="difficulty"/>Average
-                    <input type="radio" name="difficulty"/>Challenging
-                    <input type="radio" name="difficulty"/>Very Challenging<br/>
-                    <label htmlFor="title">Date Started</label><br/>
-                    <input type="date" name="date-started"/><br/>
-                    <label htmlFor="title">Hours Rehersed So Far (if any)</label><br/>
-                    <input type="number" name="hours rehersed thus far"/><br/> */}
                     <button>Submit!</button>
                 </form>
                 <div style={styles.results}>

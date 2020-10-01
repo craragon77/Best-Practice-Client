@@ -12,14 +12,9 @@ export default class Login extends Component{
             error: ''
         };
     };
-    //handleClick = (e) => {
-      //  e.preventDefault();
-        //alert('The button was clicked!')
-    //}
 
     handleUpdateUsername = (e) => {
         e.preventDefault();
-        console.log('update username!')
         this.setState({
             username: e.target.value
         });
@@ -27,7 +22,6 @@ export default class Login extends Component{
 
     handleUpdatePassword = (e) => {
         e.preventDefault();
-        console.log('update password');
         this.setState({
             password: e.target.value
         });
@@ -37,9 +31,6 @@ export default class Login extends Component{
         e.preventDefault();
         const username = this.state.username;
         const password = this.state.password;
-        console.log('the username is: ' + username);
-        console.log('the password is: ' + password);
-        console.log(AuthApiService.postLogin)
         AuthApiService.postLogin({
             username: username, password: password
         })
@@ -47,10 +38,7 @@ export default class Login extends Component{
                 (!res.ok)
                 ? res.json().then(err => alert(err.error)).then(e => Promise.reject(e))
                 : res.json().then(res => TokenService.saveAuthToken(res.authToken) + TokenService.saveUserId(res.user_id))
-                //.then(() => {this.props.history.push('/Dashboard')})
                 .then(() => {window.location.href = '/dashboard';})
-                //how would I go about redirecting both updating the state and redirecting the user to the dashboard
-                //: res.json().then(res => {/*update state;*/ TokenService.saveAuthToken(res.authToken); /*do some other thing; this.props.history.push('/dashboard');*/})
             })
             .catch(error => alert(error))
             

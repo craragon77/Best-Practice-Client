@@ -20,9 +20,6 @@ export default class UserSongProfileForm extends Component{
         const user_id = window.localStorage.Token_Id;
         const song_id = window.location.pathname.split("/")[4]
         const token = window.localStorage.Authorization;
-        console.log(token)
-        console.log(user_id)
-        //console.log(song_id)
         SongServices.getSongById(song_id, token)
         .then(res => {
             if(res.ok){
@@ -30,7 +27,6 @@ export default class UserSongProfileForm extends Component{
             }
         })
         .then(resJson => {
-            console.log(resJson)
             this.setState({
                 title: resJson.title,
                 composer: resJson.composer
@@ -44,15 +40,10 @@ export default class UserSongProfileForm extends Component{
             
         })
         .then(resJson => {
-            console.log(resJson)
             for(let i = 0; i < resJson.length; i++){
-                console.log('loop running')
-                //resJson[i]
                 if(resJson[i].song_id === song_id){
-                    console.log('the state changed')
                     alert(`Alert: ${this.state.title} by ${this.state.composer} has already been added to your repertoire. You can proceed to add this to your repertoire again or, if this was a mistake, you can return to the home page.`)
                 }
-                //return null
             }
         })
         .catch(error => alert('we are experiencing some technical difficulties. Try again later; ' + error))
@@ -62,28 +53,24 @@ export default class UserSongProfileForm extends Component{
         this.setState({
             instrument: e.target.value
         })
-        console.log(this.state.instrument);
     }
 
     handleDifficulty = (e) => {
         this.setState({
             difficulty: e.target.value
         })
-        console.log(this.state.difficulty)
     }
     
     handleHours = (e) => {
         this.setState({
             desired_hours: e.target.value
         })
-        console.log(this.state.desired_hours)
     }
 
     handleComments = (e) => {
         this.setState({
             comments: e.target.value
         })
-        console.log(this.state.comments)
     }
 
 
@@ -93,15 +80,9 @@ export default class UserSongProfileForm extends Component{
         })
     }
 
-    //handleInSystem = (e) => {
-      //  this.state.inSystem ? console.log('this activated') : null
-    //}
-
-
     handleSubmit = (e) => {
         e.preventDefault(e)
         const token = window.localStorage.Authorization
-        console.log(token)
         const song_id = window.location.pathname.split("/")[4]
         const title = this.state.title;
         const composer = this.state.composer;
@@ -111,7 +92,6 @@ export default class UserSongProfileForm extends Component{
         const desired_hours = this.state.desired_hours;
         const comments = this.state.comments;
         const user_song = {song_id,title, composer, instrument, difficulty, desired_hours, comments, date_added}
-        console.log(user_song)
         if(date_added === ""){
             date_added = Date()
         }
@@ -125,17 +105,8 @@ export default class UserSongProfileForm extends Component{
                     this.props.history.push('/SongList')
                 }
             })
-            .catch(err => console.log('we are unable to handle your request. please try again later: ' + err))
+            .catch(err => alert('we are unable to handle your request. please try again later: ' + err))
         }
-        
-        //
-        
-        /*UserSongServices.IdConfirmation(id, token)
-            .then(res => {
-                if(res.ok){
-                    alert('you already have this song in your practice repoitoire. Songs may be added only once')
-                }
-            }) */
     }
 
     render(){

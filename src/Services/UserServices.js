@@ -1,8 +1,6 @@
 import TokenService from './TokenService';
 import config from '../config';
 
-//this will be the file with all the fetch requests that will be imported as necessary :)
-
 const UserServices = {
     getAllUsers(){
         return fetch(`${config}/api/users`, {
@@ -24,7 +22,6 @@ const UserServices = {
         return fetch(`${config.API_ENDPOINT}/api/user-songs/HistoryById/${id}`, {
             
             headers: {
-                //ok so it appears to be the bearer token here?
                 'authorization': `bearer ${token}`,
                 'content-type': 'application/json'
             }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import MUSIC from '../Dummy-Music/Dummy-Music';
 import UserSongServices from '../../Services/User_Songs_Services';
 import './SongList.css';
 import {Link} from 'react-router-dom';
@@ -22,11 +21,9 @@ export default class SongList extends Component{
             }
         })
         .then(resJson => {
-            console.log(resJson)
             this.setState({
                 songs: resJson
             })
-            console.log(this.state.songs)
         })
         .catch(err => {
             console.error('we are having errors find the right information, try again later; ' +  err)
@@ -50,19 +47,6 @@ export default class SongList extends Component{
     }
 
     render(){
-        //console.log(Object.values(MUSIC[0])) <= this gives me an error?
-        let musicArray = Object.values(MUSIC)
-        console.log(MUSIC)
-        console.log(MUSIC.MUSIC[0])
-        console.log(Object.values(musicArray[0][0]))
-        /*let music = MUSIC.MUSIC.map((i) => 
-            <Song key={i.id} song = {i}/>
-        ) */
-        //fallback if you mess it up
-        /*const music = this.state.songs.map((i) => {
-            return <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
-        }) */
-        
         return(
             <>
                 <main className="SongList">

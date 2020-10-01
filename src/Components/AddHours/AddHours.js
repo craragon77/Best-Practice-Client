@@ -26,7 +26,6 @@ export default class AddHours extends Component{
                 this.setState({
                     songs: resJson
                 })
-                console.log(this.state.songs)
             })
             .catch(error => alert('we are experiencing technical difficulties. Please stand by or try again later ', error));
     }
@@ -37,7 +36,6 @@ export default class AddHours extends Component{
         let practice_hours = this.state.hours;
         let practice_date = (!this.state.date) ? new Date() : this.state.date
         let post_body = {song_practiced, practice_hours, practice_date}
-        console.log(post_body)
         if(!song_practiced || song_practiced === null){
             alert('please select a song to submit the form successfully')
         } else if(!practice_hours || practice_hours === null){
@@ -61,23 +59,18 @@ export default class AddHours extends Component{
         this.setState({
             date: e.target.value
         })
-        console.log(this.state.date)
     }
     handleHours = (e) => {
         this.setState({
             hours: e.target.value
         })
-        console.log(this.state.hours)
     }
 
     handleSong = (e) => {
-        //you're posting the song id not the user_song id
-        console.log('the handle song activated')
         e.preventDefault(e)
         this.setState({
             song_selected: e.target.value
         })
-        console.log(this.state.song_selected)
     }
 
     
