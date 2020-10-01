@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SongServices from '../../Services/SongServices';
 import UserSongServices from '../../Services/User_Songs_Services';
+import './UserSongProfileForm.css'
 
 export default class UserSongProfileForm extends Component{
     constructor(props){
@@ -49,7 +50,7 @@ export default class UserSongProfileForm extends Component{
                 //resJson[i]
                 if(resJson[i].song_id == song_id){
                     console.log('the state changed')
-                    alert(`warning, ${this.state.title} by ${this.state.composer} has already been added to you repoitoire. While you are more than welcome to post this twice, be aware that you already have this song in your account`)
+                    alert(`Alert: ${this.state.title} by ${this.state.composer} has already been added to your repertoire. You can proceed to add this to your repertoire again or, if this was a mistake, you can return to the home page.`)
                 }
                 //return null
             }
@@ -140,7 +141,7 @@ export default class UserSongProfileForm extends Component{
     render(){
         return(
             <>
-                <main>
+                <main className="form-itself">
                     <h3>
                         Before Adding {this.state.composer}'s {this.state.title} to your Repertoire,<br/>
                         What are your practice goals?
@@ -148,12 +149,15 @@ export default class UserSongProfileForm extends Component{
                         <form onSubmit={this.handleSubmit}>
                         <label htmlFor="instrument">Instrument</label><br/>
                         <input type="text" name="instrument" onChange={this.handleInstrument} required/><br/>
-                        <label htmlFor="difficulty">Difficulty Level of the Piece (based on your skill level)</label><br/>
-                            <input type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty} required/>Very Easy<br/>
-                            <input type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty} required/>Easy<br/>
-                            <input type="radio" name="difficulty" value="average" onChange={this.handleDifficulty} required/>Average<br/>
-                            <input type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty} required/>Challenging<br/>
-                            <input type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty} required/>Very Challenging<br/>
+                        <div>
+                            <label htmlFor="difficulty">Difficulty Level of the Piece <br/>(based on your skill level)</label><br/>
+                            <input className="radio-button" type="radio" name="difficulty" value="very easy" onChange={this.handleDifficulty} required/>Very Easy<br/>
+                            <input className="radio-button" type="radio" name="difficulty" value="easy" onChange={this.handleDifficulty} required/>Easy<br/>
+                            <input className="radio-button" type="radio" name="difficulty" value="average" onChange={this.handleDifficulty} required/>Average<br/>
+                            <input className="radio-button" type="radio" name="difficulty" value="challenging" onChange={this.handleDifficulty} required/>Challenging<br/>
+                            <input className="radio-button" type="radio" name="difficulty" value="very challenging" onChange={this.handleDifficulty} required/>Very Challenging<br/>
+                        </div>
+                        
                         <label htmlFor="desired_hours">How much do you want to practice this piece (hours per week)</label><br/>
                         <input type="number" name="desired_hours" onChange={this.handleHours} required/><br/>
                         <label htmlFor="date_started">When did you start practicing this piece (if today, just leave this part blank)</label><br/>

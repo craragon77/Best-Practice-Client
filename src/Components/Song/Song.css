@@ -1,8 +1,8 @@
 #song-stats, #song-history{
-    border: 1px solid white;
     margin: 20px;
     padding-left: 10px;
     padding-right: 10px;
+    border: 2px solid white;
 }
 
 #delete-section > button{
@@ -10,7 +10,6 @@
     width: 170px;
     background-color: maroon;
     font-weight: 700;
-    border: 1px solid white;
     color: white;
 }
 
@@ -21,6 +20,11 @@
     margin: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid white;
+    text-align: center;
+}
+#song-stats > h2{
+    text-align: center;
+}
+#song-history > h3{
     text-align: center;
 }

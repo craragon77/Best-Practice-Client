@@ -1,11 +1,11 @@
 .Stats{
     text-align: center;
-    border: 2px solid white;
     margin: 20px;
 }
-.Stats > div > a {
+.linksToExplore > a {
     color: lightblue;
     font-weight: 600;
+    font-size: 17px;
 }
 
 .Stats > div > p{
@@ -15,4 +15,9 @@
 #username{
     color: lightblue;
     font-style: oblique;
+}
+
+.linksToExplore{
+    direction: flex;
+    flex-direction: column;
 }

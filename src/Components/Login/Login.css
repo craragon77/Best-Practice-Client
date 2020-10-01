@@ -1,6 +1,5 @@
 .Login-Form{
     text-align: center;
-    border: 2px solid white;
     margin: 20px;
     padding: 10px;
 }
@@ -16,6 +15,7 @@ button{
     width: 50px;
 }
 .Login-Form > input{
-    padding-left: px;
+    padding-left: 5px;
     border-radius: 5px;
+    margin: 5px;
 }

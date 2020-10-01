@@ -7,4 +7,11 @@
     color: white;
     border: 1px solid white;
     background-origin: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+.footer{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0;
 }

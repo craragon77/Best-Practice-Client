@@ -92,7 +92,11 @@ export default class AddSong extends Component{
                 border: '2px solid white',
                 margin: '20px',
                 padding: '10px',
-            }: null
+            }: null,
+            resultsLenth: this.state.searched ?{
+                //display: 'none',
+                textAlign: 'center'
+            } : {display : 'none'}
         }
         return(
             <>
@@ -115,8 +119,9 @@ export default class AddSong extends Component{
                     <button>Submit!</button>
                 </form>
                 <div style={styles.results}>
-                    {this.addToDatabaseLink()}
+                <p style={styles.resultsLenth}>Showing {this.state.results.length} result(s) based on your search</p>
                     {this.handleResultsRendering()}
+                    {this.addToDatabaseLink()}
                 </div>
             </>
         )

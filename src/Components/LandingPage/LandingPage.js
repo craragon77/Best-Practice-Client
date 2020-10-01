@@ -5,7 +5,6 @@ import "./LandingPage.css"
 export default class LandingPage extends Component{
     render(){
         return(
-            //never waste a minuet? is that a better one
             <>
                 <div className="Explination">
                     <p>
@@ -15,7 +14,7 @@ export default class LandingPage extends Component{
                     </p>
                 </div>
                 <div className="Register-div">
-                    <h3>Get Started Today!</h3>
+                    <Link to={"/Login"}><h3>Get Started Today!</h3></Link>
                 </div>
             </>
             

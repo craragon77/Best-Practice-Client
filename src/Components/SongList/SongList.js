@@ -41,7 +41,7 @@ export default class SongList extends Component{
             const music = this.state.songs.map((i) => {
                 return (
                     <div key={i.id} className="song-list">
-                        <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title} by {i.composer}</h2></Link>
+                        <Link to={`song/${i.song_id}/${i.id}`}><h2>{i.title}<br/>by {i.composer}</h2></Link>
                     </div>
                 
                 )
@@ -68,7 +68,7 @@ export default class SongList extends Component{
             <>
                 <main className="SongList">
                     <h1>Your Songs</h1>
-                    {this.ifSongStateisEmpty()}
+                        {this.ifSongStateisEmpty()}
                 </main>
             </>
         )

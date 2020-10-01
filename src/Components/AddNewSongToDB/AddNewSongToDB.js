@@ -53,9 +53,7 @@ export default class AddNewSongToDB extends Component{
                 <form className="AddNewSongForm" onSubmit={this.handleSubmit}>
                     <h3>Add New Song to the Database</h3>
                     <p id="disclaimer">
-                        By adding new songs for others to practice, you help expand the Best Practice database library,
-                        which allow other musicians to practice the same pieces and improve their musical ability and repoitoire.<br/>
-                        When posting a new song, please add all information available (such as the catoloague number) so others have access to it.
+                    By uploading a new song, you will add it to the Best Practice database for other users’ usage as well. Please complete all fields to add it to the database correctly, and include all information available (key, song type, catalog number, etc)
                     </p>
                     <label htmlFor="title">Title</label><br/>
                     <input type="text" className='title_input' required onChange={this.handleTitle}/><br/>

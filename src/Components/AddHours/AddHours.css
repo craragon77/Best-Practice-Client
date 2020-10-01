@@ -1,10 +1,14 @@
 .AddHours-Form{
     text-align: center;
-    border: 2px solid white;
     margin: 20px;
     padding: 10px;
 }
 .AddHours-Form > input{
     padding-left: 5px;
     border-radius: 5px;
+    margin: 5px;
+}
+.dropmenu{
+    width: 200px;
+    margin: 5px;
 }

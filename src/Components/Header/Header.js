@@ -42,9 +42,6 @@ export default class Header extends Component{
                 color: 'white',
                 fontFamily:'Lobster',
             },
-            logo: {
-                margin: '0 auto',
-            },
             body: {
                 display: 'flex',
                 flexDirection: 'column',
@@ -57,13 +54,10 @@ export default class Header extends Component{
         }
         return(
             <div className="Header-Links">
-                <div styles={styles.container}>
+                <div style={styles.container}>
                     <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color='white'/>
                 </div>
                 <Menu open={this.state.menuOpen} onClick={() =>this.handleLinkClick()}/>
-                {/*<div styles={styles.body}>
-                    <Footer name='Menu'/>
-                </div> */}
                 
             </div>
         )

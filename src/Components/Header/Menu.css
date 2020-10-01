@@ -1,12 +1,10 @@
-.Header-Links{
+.Menulist > a{
+    padding-left: 20px;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+.Menulist{
+    padding-top: 3rem;
     display: flex;
-    border: 1px solid black;
-    justify-content: space-evenly;
-    background-color: black;
-}
-.link-container{
-    width: 100%;
-}
-.inner-link-container > a{
-    color: white;
+    flex-direction: column;
 }

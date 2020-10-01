@@ -86,9 +86,9 @@ export default class Signup extends Component{
                     <input type="text" name="username" onChange={this.handleUsername}/><br/>
                     <label htmlFor="password">Password</label><br/>
                     <input type="password" name="password" onChange={this.handlePassword}/><br/>
-                    <label htmlFor="password">Repeat-Password</label><br/>
+                    <label htmlFor="password">Re-enter Password</label><br/>
                     <input type="password" name="repeat-password" onChange={this.handleRepeatPassword}/><br/>
-                    <button onClick={this.handleNewUser}>Sign Up!</button>
+                    <button onClick={this.handleNewUser}>Sign Up</button>
                 </form>
             </>
         )

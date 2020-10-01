@@ -4,3 +4,8 @@
 .song-list > a{
     color: lightblue;
 }
+.SongList{
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}

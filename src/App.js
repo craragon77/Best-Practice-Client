@@ -24,30 +24,35 @@ function App() {
       display:'flex',
       flexDirection:'column',
       alignItems: 'flex-start',
-      //height: '100vh'
     }
   }
   return (
-    <div className="App">
-        <div style={styles.main}>
-          <Header />
-        </div>
-        <TitleBar/>
-      <Switch>
-        <Route exact path="/" component={LandingPage}/>
-        <PrivateRoute path="/Dashboard" component={Dashboard}/>
-        <PublicRoute path="/Login" component={Login}/>
-        <PublicRoute path="/Signup" component={Signup}/>
-        <PrivateRoute path="/AddHours" component={AddHours}/>
-        <PrivateRoute path="/AddSong" component={AddSong}/>
-        <PrivateRoute path="/SongList" component={SongList}/>
-        <PrivateRoute path="/Song" component={Song}/>
-        <PrivateRoute path="/AddNewSong" component={AddNewSongToDB}/>
-        <PrivateRoute path="/AddUserSong/form/post" component={UserSongProfileForm}/>
-        <Route component={PageNotFound}/>
-      </Switch>
-    </div>
-  );
+    <>
+      <div className="App">
+          <div style={styles.main}>
+            <Header />
+          </div>
+          <TitleBar/>
+        <Switch>
+          <Route exact path="/" component={LandingPage}/>
+          <PrivateRoute path="/Dashboard" component={Dashboard}/>
+          <PublicRoute path="/Login" component={Login}/>
+          <PublicRoute path="/Signup" component={Signup}/>
+          <PrivateRoute path="/AddHours" component={AddHours}/>
+          <PrivateRoute path="/AddSong" component={AddSong}/>
+          <PrivateRoute path="/SongList" component={SongList}/>
+          <PrivateRoute path="/Song" component={Song}/>
+          <PrivateRoute path="/AddNewSong" component={AddNewSongToDB}/>
+          <PrivateRoute path="/AddUserSong/form/post" component={UserSongProfileForm}/>
+          <Route component={PageNotFound}/>
+        </Switch>
+        <footer className="footer">
+          <p>Developed by Chris Aragon 2020</p>
+      </footer>
+      </div>
+      
+      </>
+    );
 }
 
 export default App;

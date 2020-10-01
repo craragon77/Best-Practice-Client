@@ -1,6 +1,5 @@
 .Signup-Form{
     text-align: center;
-    border: 2px solid white;
     margin: 20px;
     padding: 10px;
 }
@@ -12,4 +11,5 @@ button{
 .Signup-Form > input{
     padding-left: 5px;
     border-radius: 5px;
+    margin: 5px;
 }

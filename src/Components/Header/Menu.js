@@ -28,7 +28,7 @@ export default class Menu extends Component{
 
     renderLogOutLink = () => {
         return(
-            <Link to='/' onClick={this.handleLogOutClick}>Signout</Link>
+            <Link to='/' onClick={this.handleLogOutClick}>Sign Out</Link>
         );
     }
 
@@ -65,16 +65,14 @@ export default class Menu extends Component{
               color: '#fafafa',
               transition: 'height 0.3s ease',
               zIndex: 2,
-            },
-            menuList: {
-              paddingTop: '3rem',
+
             }
           }
         return(
             <div style={styles.container}>
                 {
                 this.state.open?
-                <div style={styles.menuList}>
+                <div className="Menulist">
                     <Link to="/" onClick={this.props.onClick}>Home</Link><br/>
                     <Link to="/Dashboard" onClick={this.props.onClick}>Your Practice Stats</Link><br/>
                     <Link to="/AddHours" onClick={this.props.onClick}>Log Practice Hours</Link><br/>

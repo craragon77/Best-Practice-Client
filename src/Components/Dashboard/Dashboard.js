@@ -102,11 +102,14 @@ export default class Dashboard extends Component{
                 } else{
                     const datesCleaned = []
                     for(let i = 0; i < dates.length; i++){
-                        console.log(dates[i]._d instanceof Date)
+                        //console.log(dates[i]._d instanceof Date)
                         if(!isNaN(dates[i]._i)){
+                            console.log('test')
                             datesCleaned.push(dates[i])
                         }
+                        
                 }
+                //console.log(datesCleaned)
                     return (
                         `Your most recent rehearsal was on ` + 
                      moment.max(datesCleaned).format("MM/DD/YYYY h:mm:ss a")
@@ -153,9 +156,12 @@ export default class Dashboard extends Component{
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     {/*<p>You have practiced 7.5 hours total this week</p> */}
                     <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60 || 0} minutes per day</p>
-                    <Link to="/SongList">See your songs</Link><br/>
-                    <Link to="/AddSong">Add a new song</Link><br/>
-                    <Link to="/AddHours">Log Practice Hours</Link><br/>
+                    <div className="linksToExplore">
+                        <Link to="/SongList">See your songs</Link><br/>
+                        <Link to="/AddSong">Add a new song</Link><br/>
+                        <Link to="/AddHours">Log Practice Hours</Link><br/>
+                    </div>
+                    
                 </div>
             </main>
                 

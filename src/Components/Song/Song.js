@@ -146,30 +146,29 @@ export default class Song extends Component {
             <>
                 <div className="Song-Container">
                     <section id="song-stats">
-                    <h1>{this.state.song.title}</h1>
-                    <h2>By {this.state.song.composer}</h2>
-                        <p>played for the {instrument}</p>
-                        <p>Desired Hours per week: {desired_hours} hours per week</p>
-                        <p>Desired Average Hours per day: {Math.round(desired_hours / 7)} hours per day</p>
-                        <p>Total Hours rehearsed for this song: {Math.round(totalHours)} hour</p>
-                        <p>You have averaged {(Math.round(totalHours) / this.state.history.length) * 60} minutes per practice session</p>
+                    <h2>{this.state.song.title} <br/>By {this.state.song.composer}</h2>
+                        <p>Played for the: {instrument}</p>
+                        <p>Desired hours per week: {desired_hours} hours per week</p>
+                        <p>Desired average hours per day: {Math.round((desired_hours * 60)/ 7)} minutes per day</p>
+                        <p>Total hours rehearsed for this song: {Math.round(totalHours)} hour</p>
+                        <p>Average per rehersal: {(Math.round(totalHours) / this.state.history.length) * 60} minutes</p>
                         <p>Rehearsal for {this.state.song.title} began on: {moment(startDate).format("MM/DD/YYYY h:mm:ss a")}</p>
                         <p>Difficulty level: {difficulty}</p>
                         <p>Comments: {comments || `none`}</p>
                     </section>
                     <section id="song-history">
+                        <h3>Practice Log</h3>
                         {this.mapOverhistory()}
                     </section>
                     <section id="delete-section">
                         <h4>
-                            Click below to remote this song, click the button below<br />
-                        By clicking below, this song, as well as all of the practice history of this song, will be perminately (and irritreviably) deleted from your account
+                        By deleting this song, your practice history for this song will be permanently deleted from your account. Please check the box below if you would like to proceed.
                     </h4><br />
                         <div>
-                            <label htmlFor="hours" />I understand that I will be perminately removing {this.state.song.title} by {this.state.song.composer} and its practice history<br />
+                            <label htmlFor="hours" />I agree to remove {this.state.song.title} by {this.state.song.composer} and its practice history<br />
                             <input type="checkbox" name="delete_confirmation" onClick={this.handleDeleteConfirm} /><br />
                         </div>
-                        <button onClick={this.handleDelete}>Delete this song anyway</button>
+                        <button onClick={this.handleDelete}>Delete this song</button>
                     </section>
                 </div>
             </>
