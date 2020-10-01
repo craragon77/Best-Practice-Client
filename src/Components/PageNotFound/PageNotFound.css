@@ -3,3 +3,12 @@
     margin: 20px;
     padding: 10px;
 }
+
+@media screen and (min-width: 1000px){
+    .PageNotFound > h2{
+        font-size: 40px
+    }
+    .PageNotFound > h4{
+        font-size: 25px;
+    }
+}

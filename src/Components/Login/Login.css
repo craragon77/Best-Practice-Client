@@ -19,3 +19,21 @@ button{
     border-radius: 5px;
     margin: 5px;
 }
+@media screen and (min-width: 600px){
+    .Login-Form{
+        padding: 0;
+    }
+}
+@media screen and (min-width: 1000px){
+    .Login-Form > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    .Login-Form > label{
+        font-size: 25px;
+    }
+    button{
+        font-size: 18px;
+    }
+}

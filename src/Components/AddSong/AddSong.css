@@ -22,4 +22,18 @@ a{
         height: 20px;
         width: 150px;
     }
+
+}
+@media screen and (min-width: 1000px){
+    .AddSong-Form > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    .AddSong-Form > label{
+        font-size: 25px;
+    }
+    .AddSong-Form > button{
+        font-size: 18px;
+    }
 }

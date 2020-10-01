@@ -26,3 +26,21 @@
         width: 100px;
     }
 }
+
+@media screen and (min-width: 1000px){
+    .AddHours-Form > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    .AddHours-Form > label{
+        font-size: 25px;
+    }
+    .AddHours-Form > button{
+        font-size: 18px;
+    }
+    .dropmenu{
+        height: 40px;
+        font-size: 18px
+    }
+}

@@ -8,3 +8,8 @@
     display: flex;
     flex-direction: column;
 }
+@media screen and (min-width: 1000px){
+    .Menulist > a{
+        font-size: 30px;
+    }
+}

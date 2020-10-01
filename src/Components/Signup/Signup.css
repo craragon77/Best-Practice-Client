@@ -13,3 +13,16 @@ button{
     border-radius: 5px;
     margin: 5px;
 }
+@media screen and (min-width: 1000px){
+    .Signup-Form > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    .Signup-Form > label{
+        font-size: 25px;
+    }
+    button{
+        font-size: 18px;
+    }
+}

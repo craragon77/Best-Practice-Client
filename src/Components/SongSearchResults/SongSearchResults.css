@@ -13,3 +13,20 @@
 }
 
 
+@media screen and (min-width: 1000px){
+    .search-results-container{
+        height: 100px;
+    }
+    .search-results-container > h3{
+        font-size: 25px;
+    }
+    .search-results-container > a{
+        font-size: 22px;
+    }
+    section{
+        font-size: 20px;
+    }
+    .search-results-container > h4{
+        font-size: 20px;
+    }
+}

@@ -23,3 +23,26 @@ form > input{
         width: 100px;
     }
 }
+@media screen and (min-width: 1000px){
+    form > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    form > label{
+        font-size: 20px;
+    }
+    form > button{
+        font-size: 18px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    form > div > label{
+        font-size: 20px;
+    }
+    .radio-button{
+        font-size: 20px;
+    }
+}
+

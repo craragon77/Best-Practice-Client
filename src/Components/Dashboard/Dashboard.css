@@ -29,3 +29,18 @@
         justify-content: space-evenly;
     }
 }
+
+@media screen and (min-width: 1000px){
+    .Stats > h2{
+        font-size: 40px;
+    }
+    div > h2{
+        font-size: 30px;
+    }
+    div > p{
+        font-size: 20px;
+    }
+    .linksToExplore > a{
+        font-size: 25px;
+    }
+}

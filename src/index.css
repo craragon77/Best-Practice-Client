@@ -25,3 +25,8 @@ code {
       background-image: url('./music_pics/music\(tint\)4.jpg');
   }
 }
+@media screen and (min-width: 1000px){
+  body{
+    background-image: url('./music_pics/music\(tint\)2.jpg');
+  }
+}

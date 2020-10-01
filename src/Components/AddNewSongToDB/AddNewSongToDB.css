@@ -30,3 +30,24 @@
         width: 150px;
     }
 }
+@media screen and (min-width: 1000px){
+    .AddNewSongForm > h3{
+        font-size: 25px;
+    }
+    #disclaimer{
+        font-size: 20px;
+    }
+    .AddNewSongForm > input{
+        height: 25px;
+        width: 200px;
+        font-size: 20px;
+    }
+    .AddNewSongForm > label{
+        font-size: 25px;
+    }
+    .AddNewSongForm > button{
+        font-size: 18px;
+        width: 115px;
+        height: 45px;
+    }
+}

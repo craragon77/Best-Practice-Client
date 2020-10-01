@@ -31,6 +31,9 @@
 #song-history > h3{
     text-align: center;
 }
+#delete-section > h4{
+    font-size: 15px;
+}
 @media screen and (min-width: 600px){
     .Song-Container{
         text-align: center;
@@ -38,5 +41,26 @@
     #delete-section > div > input{
         height: 15px;
         width: 15px;
+    }
+}
+@media screen and (min-width: 1000px){
+    #song-stats > h2{
+        font-size: 30px;
+    }
+    #song-stats > p, #song-history > p{
+        font-size: 22px;
+    }
+    #song-history > h3{
+        font-size: 25px;
+    }
+    #delete-section > h4{
+        font-size: 20px;
+    }
+    #delete-section > div > input{
+        height: 20px;
+        width: 20px;
+    }
+    #delete-section > div{
+        font-size: 20px;
     }
 }
