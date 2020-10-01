@@ -18,6 +18,14 @@
 }
 
 .linksToExplore{
-    direction: flex;
+    display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 600px){
+    .linksToExplore{
+        text-align: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }

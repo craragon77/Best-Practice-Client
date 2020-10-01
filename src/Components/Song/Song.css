@@ -1,3 +1,6 @@
+.Song-Container{
+    text-align: left;
+}
 #song-stats, #song-history{
     margin: 20px;
     padding-left: 10px;
@@ -27,4 +30,13 @@
 }
 #song-history > h3{
     text-align: center;
+}
+@media screen and (min-width: 600px){
+    .Song-Container{
+        text-align: center;
+    }
+    #delete-section > div > input{
+        height: 15px;
+        width: 15px;
+    }
 }

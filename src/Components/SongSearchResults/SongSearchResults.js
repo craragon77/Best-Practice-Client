@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import UserSongServices from '../../Services/User_Songs_Services';
 import {Link} from 'react-router-dom';
-import './SongSearchResults';
+import './SongSearchResults.css';
 
 export default class SearchSongResults extends Component{
     constructor(props){
@@ -39,7 +39,7 @@ export default class SearchSongResults extends Component{
     render(){
         console.log(this.props.id)
         return(
-            <div clalssName="search-results-container">
+            <div className="search-results-container">
                 <h3>{this.props.title} by {this.props.composer}</h3>
                 <Link to={`/AddUserSong/form/post/${this.props.id}`}>Add To Repertoire</Link>
             </div>

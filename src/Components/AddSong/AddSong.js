@@ -89,13 +89,14 @@ export default class AddSong extends Component{
         const styles={
             results: this.state.searched ? {
                 textAlign: 'center',
-                border: '2px solid white',
+                //border: '2px solid white',
                 margin: '20px',
                 padding: '10px',
             }: null,
             resultsLenth: this.state.searched ?{
-                //display: 'none',
-                textAlign: 'center'
+                
+                textAlign: 'center',
+                fontWeight: '600'
             } : {display : 'none'}
         }
         return(

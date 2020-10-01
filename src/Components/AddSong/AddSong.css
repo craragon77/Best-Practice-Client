@@ -12,3 +12,14 @@
 a{
     color: lightblue;
 }
+
+@media screen and (min-width: 600px){
+    .AddSong-Form > button{
+        height: 30px;
+        width: 100px;
+    }
+    .AddSong-Form > input{
+        height: 20px;
+        width: 150px;
+    }
+}

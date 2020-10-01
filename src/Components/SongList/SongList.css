@@ -9,3 +9,9 @@
     margin: 20px;
     padding: 10px;
 }
+
+@media screen and (min-width: 600px){
+    .song-list{
+        margin-bottom: 40px;
+    }
+}

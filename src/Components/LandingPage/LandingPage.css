@@ -8,3 +8,17 @@
     font-size: 15px;
     font-weight: 600;
 }
+
+@media screen and (min-width: 600px){
+    .Explination{
+        height: 175px;
+    }
+    .Explination > p{
+        font-size: 20px;
+        line-height: 40px;
+    }
+    .Register-div{
+        text-align: center;
+        margin: 30px
+    }
+}

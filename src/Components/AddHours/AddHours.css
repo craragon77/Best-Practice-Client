@@ -12,3 +12,17 @@
     width: 200px;
     margin: 5px;
 }
+
+@media screen and (min-width: 600px){
+    .AddHours-Form > input{
+        height: 20px;
+        width: 150px;
+    }
+    .dropmenu{
+        height: 30px;
+    }
+    .AddHours-Form > button{
+        height: 30px;
+        width: 100px;
+    }
+}

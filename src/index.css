@@ -5,9 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 20px;
+  background-image: url('./music_pics/music\(tint\)6.jpg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: center;
+  background-attachment: fixed;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (min-width: 600px){
+  body{
+      background-image: url('./music_pics/music\(tint\)4.jpg');
+  }
 }
