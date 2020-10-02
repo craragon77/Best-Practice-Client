@@ -59,7 +59,7 @@ export default class Song extends Component {
 
     handleDeleteConfirm = () => {
         this.setState({
-            delete: true
+            delete: !this.state.delete
         })
     }
     handleDelete = (e) => {
@@ -86,9 +86,9 @@ export default class Song extends Component {
             } else {
                 return (
                     <div key={entry.id}>
+                        <hr />
                         <p>Date: {moment(entry.practice_date).format("MM/DD/YYYY h:mm:ss a")}</p>
                         <p>Hours Logged During Practice: {entry.practice_hours}</p>
-                        <hr />
                     </div>
                 )
             }

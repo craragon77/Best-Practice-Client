@@ -47,7 +47,7 @@ export default class AddSong extends Component{
 
     handleResultsRendering = () => {
         if((this.state.results === null || this.state.results.length === 0) &&(this.state.searched === true)){
-            return <h4>We did not find anything in our database based on your search. <br/> You may research under a new term or contribute to the song to our database with the link above</h4>
+            return <h4>We did not find anything in our database based on your search. <br/> You may research under a new term or contribute to the song to our database with the link below</h4>
         } else {
             return this.state.results.map((i) => {
                 return (

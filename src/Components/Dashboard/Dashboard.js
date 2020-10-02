@@ -106,9 +106,9 @@ export default class Dashboard extends Component{
                     <p>You have logged a total of {totalHours} hours of practice time</p>
                     <p>You have averaged a practice time of {(totalHours / this.state.data.length) * 60 || 0} minutes per day</p>
                     <div className="linksToExplore">
-                        <Link to="/SongList">See your songs</Link><br/>
-                        <Link to="/AddSong">Add a new song</Link><br/>
-                        <Link to="/AddHours">Log Practice Hours</Link><br/>
+                        <Link to="/SongList">See your songs</Link>
+                        <Link to="/AddSong">Add a new song</Link>
+                        <Link to="/AddHours">Log Practice Hours</Link>
                     </div>
                     
                 </div>
