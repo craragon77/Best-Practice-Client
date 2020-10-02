@@ -4,7 +4,7 @@ Its the ideal program for musicians who need support managing how they practice 
 
 live-link: https://best-practice-client.vercel.app/
 
-![snapshot large screen](https://github.com/craragon77/Best-Practice-Client/tree/master/src/readme-pics/screenshot1.png)
+![snapshot large screen](https://github.com/craragon77/Best-Practice-Client/src/readme-pics/screenshot1.png)
 
 
 To start, just create an account with a unique username and password. Then, find the songs you are practicing from the Best Practice Database (and if you can't find what you are looking for you can add it yourself), and log the songs that you practice and for how long. Best Practice will take care of the rest.
