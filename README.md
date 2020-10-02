@@ -12,7 +12,7 @@ To start, just create an account with a unique username and password. Then, find
 
 Best Practice was built using React, Javascript, RESTful API's, HTML5, CSS. To view the server repository, you can find it here: https://github.com/craragon77/best-practice-server
 
-![snapshot small screen](https://github.com/craragon77/Best-Practice-Client/blob/master/src/readme-pics/screenshot3.png)
+![snapshot small screen](https://github.com/craragon77/Best-Practice-Client/blob/master/src/readme-pics/screenshot4.png)
 
 To start this program locally, just download the code and its packages, then type "npm start" in the command line to run the repository locally.
 

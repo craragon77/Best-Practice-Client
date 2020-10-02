@@ -123,7 +123,7 @@ export default class Song extends Component {
                         <p>Desired hours per week: {desired_hours} hours per week</p>
                         <p>Desired average hours per day: {Math.round((desired_hours * 60)/ 7)} minutes per day</p>
                         <p>Total hours rehearsed for this song: {Math.round(totalHours)} hour</p>
-                        <p>Average per rehersal: {(Math.round(totalHours) / this.state.history.length) * 60} minutes</p>
+                        <p>Average per rehearsal: {(Math.round(totalHours) / this.state.history.length) * 60} minutes</p>
                         <p>Rehearsal for {this.state.song.title} began on: {moment(startDate).format("MM/DD/YYYY h:mm:ss a")}</p>
                         <p>Difficulty level: {difficulty}</p>
                         <p>Comments: {comments || `none`}</p>
